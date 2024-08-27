@@ -386,10 +386,44 @@ end)
 local TatsumakiCheats = PhantomForcesWindow:NewSection("Tatsumaki")
 
 --🟩KillAll Tatsumaki🟩
-TatsumakiCheats:CreateButton("Kill all (ult)", function()
+workspace.FallenPartsDestroyHeight = 0/0
 
-    -- Tatsumaki Kill all
-    local player = game.Players.LocalPlayer
+local animations = {
+    ["rbxassetid://16734584478"] = 0,
+    ["rbxassetid://16734584478"] = 0,
+}
+
+function ifind(t, a)
+    for i, v in pairs(t) do
+        if i == a then
+            return i
+        end
+    end
+    return false
+end
+
+local plr = game.Players.LocalPlayer
+
+local function startScript()
+    getgenv().loop = coroutine.create(function()
+        local dothetech = false
+        local lastcf
+        while task.wait() do
+            local character = plr.Character
+            local animate = character.Humanoid.Animator
+
+            for i, v in pairs(animate:GetPlayingAnimationTracks()) do
+                if ifind(animations, v.Animation.AnimationId) then
+                    task.wait(animations[v.Animation.AnimationId])
+                    dothetech = true
+                    lastcf = character.HumanoidRootPart.CFrame
+                    v.Stopped:Connect(function()
+                        dothetech = false
+                    end)
+                    repeat
+                        wait()
+                        workspace.Camera.CameraType = Enum.CameraType.Scriptable
+                        local player = game.Players.LocalPlayer
     local function teleportToPlayer(targetPlayer)
         if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
             player.Character:SetPrimaryPartCFrame(targetPlayer.Character.HumanoidRootPart.CFrame)
@@ -420,10 +454,35 @@ TatsumakiCheats:CreateButton("Kill all (ult)", function()
     
     -- İlk teleport konumu
     humanoidRootPart.CFrame = CFrame.new(Vector3.new(0, 999999999, 0))
-    wait(4.5)
-    
-    -- Yeni teleport konumu
-    humanoidRootPart.CFrame = CFrame.new(Vector3.new(150, 505, 30))
+                        character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.zero
+                        character.HumanoidRootPart.AssemblyAngularVelocity = Vector3.zero
+                    until not dothetech
+                    task.wait(1)
+                    character.HumanoidRootPart.CFrame = lastcf
+                    workspace.Camera.CameraType = Enum.CameraType.Custom
+                    workspace.Camera.CameraSubject = character.Humanoid
+                    task.wait(1)
+                end
+            end
+        end
+    end)
+    coroutine.resume(getgenv().loop)
+end
+
+local function stopScript()
+    if getgenv().loop then
+        coroutine.close(getgenv().loop)
+        getgenv().loop = nil
+    end
+end
+
+-- Toggle işlevi
+TatsumakiCheats:CreateToggle("Auto Kill All (ULT)", function(value)
+    if value then
+        startScript() -- Toggle açıldığında script başlatılır
+    else
+        stopScript() -- Toggle kapatıldığında script durdurulur
+    end
 end)
 
 
