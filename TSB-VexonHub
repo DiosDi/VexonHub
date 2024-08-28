@@ -85,27 +85,79 @@ createCirclePart(25, 1, Vector3.new(150, 500, 30), 0.1)
 local SaitamaCheats = PhantomForcesWindow:NewSection("Saitama")
 
 --🟨ByPass Counter🟨
-SaitamaCheats:CreateButton("ByPass DeathCounter", function()
+workspace.FallenPartsDestroyHeight = 0/0
 
-local player = game.Players.LocalPlayer
-local startPosition = player.Character.HumanoidRootPart.Position -- Oyuncunun başlangıç pozisyonu
-local targetPosition = Vector3.new(0, -499, 0) -- Işınlanmak istediğiniz hedef pozisyon
+local animations = {
+    ["rbxassetid://11343250001"] = 0.1
+}
 
-player.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
-wait(3)
+function ifind(t, a)
+    for i, v in pairs(t) do
+        if i == a then
+            return i
+        end
+    end
+    return false
+end
 
--- Oyuncuyu başlangıç pozisyonuna geri ışınla
-player.Character.HumanoidRootPart.CFrame = CFrame.new(startPosition)
-Wait(3)
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-local Camera = game.Workspace.CurrentCamera
+local plr = game.Players.LocalPlayer
 
--- Kamera modunu serbest bırak
-Camera.CameraType = Enum.CameraType.Custom
+local function startScript()
+    getgenv().loop = coroutine.create(function()
+        local dothetech = false
+        local startPosition
+        local targetPosition = Vector3.new(0, -499, 0)
+        local Camera = game.Workspace.CurrentCamera
 
--- Alternatif olarak, oyuncunun varsayılan kamera modunu ayarlamak için:
-player.CameraMode = Enum.CameraMode.Classic
+        while task.wait() do
+            local character = plr.Character
+            local animate = character.Humanoid.Animator
+
+            for i, v in pairs(animate:GetPlayingAnimationTracks()) do
+                if ifind(animations, v.Animation.AnimationId) then
+                    task.wait(animations[v.Animation.AnimationId])
+                    dothetech = true
+                    startPosition = character.HumanoidRootPart.Position -- Oyuncunun başlangıç pozisyonu
+
+                    v.Stopped:Connect(function()
+                        dothetech = false
+                    end)
+                    repeat
+                        wait()
+                        -- Pozisyonu değiştir
+                        character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
+                        task.wait(1)
+
+                        -- Pozisyona geri dön
+                        character.HumanoidRootPart.CFrame = CFrame.new(startPosition)
+                        task.wait(3)
+
+                        -- Kamera modunu serbest bırak
+                        Camera.CameraType = Enum.CameraType.Custom
+                        plr.CameraMode = Enum.CameraMode.Classic
+                    until not dothetech
+                    task.wait(1)
+                end
+            end
+        end
+    end)
+    coroutine.resume(getgenv().loop)
+end
+
+local function stopScript()
+    if getgenv().loop then
+        coroutine.close(getgenv().loop)
+        getgenv().loop = nil
+    end
+end
+
+-- Toggle işlevi
+SaitamaCheats:CreateToggle("Anti Death Counter", function(value)
+    if value then
+        startScript() -- Toggle açıldığında script başlatılır
+    else
+        stopScript() -- Toggle kapatıldığında script durdurulur
+    end
 end)
 
 --🟨esp DeathCounter🟨
@@ -386,10 +438,7 @@ end)
 local TatsumakiCheats = PhantomForcesWindow:NewSection("Tatsumaki")
 
 --🟩KillAll Tatsumaki🟩
-workspace.FallenPartsDestroyHeight = 0/0
-
 local animations = {
-    ["rbxassetid://16734584478"] = 0,
     ["rbxassetid://16734584478"] = 0,
 }
 
@@ -403,6 +452,26 @@ function ifind(t, a)
 end
 
 local plr = game.Players.LocalPlayer
+
+local function teleportToPlayer(targetPlayer)
+    if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        plr.Character:SetPrimaryPartCFrame(targetPlayer.Character.HumanoidRootPart.CFrame)
+    end
+end
+
+local function startTeleportation(interval)
+    local players = game.Players:GetPlayers()
+    local playerIndex = table.find(players, plr)
+
+    if not playerIndex then return end
+
+    for i = 1, #players do
+        local nextIndex = (playerIndex + i - 1) % #players + 1
+        local nextPlayer = players[nextIndex]
+        teleportToPlayer(nextPlayer)
+        task.wait(interval)
+    end
+end
 
 local function startScript()
     getgenv().loop = coroutine.create(function()
@@ -421,39 +490,11 @@ local function startScript()
                         dothetech = false
                     end)
                     repeat
-                        wait()
+                        task.wait()
                         workspace.Camera.CameraType = Enum.CameraType.Scriptable
-                        local player = game.Players.LocalPlayer
-    local function teleportToPlayer(targetPlayer)
-        if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
-            player.Character:SetPrimaryPartCFrame(targetPlayer.Character.HumanoidRootPart.CFrame)
-        end
-    end
-
-    local function startTeleportation(interval)
-        local players = game.Players:GetPlayers()
-        local playerIndex = table.find(players, player)
-
-        if not playerIndex then return end
-
-        for i = 1, #players do
-            local nextIndex = (playerIndex + i - 1) % #players + 1
-            local nextPlayer = players[nextIndex]
-
-            teleportToPlayer(nextPlayer)
-            wait(interval)
-        end
-    end
-
-    startTeleportation(0.1)
-    wait(0.1)
-    
-    -- Teleport işlemi
-    local character = player.Character or player.CharacterAdded:Wait()
-    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-    
-    -- İlk teleport konumu
-    humanoidRootPart.CFrame = CFrame.new(Vector3.new(0, 999999999, 0))
+                        startTeleportation(0.1)
+                        task.wait(0.1)
+character.HumanoidRootPart.CFrame = CFrame.new(1000000, 1000000, 1000000) -- Pozisyonu buraya girin
                         character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.zero
                         character.HumanoidRootPart.AssemblyAngularVelocity = Vector3.zero
                     until not dothetech
@@ -477,7 +518,7 @@ local function stopScript()
 end
 
 -- Toggle işlevi
-TatsumakiCheats:CreateToggle("Auto Kill All (ULT)", function(value)
+TatsumakiCheats:CreateToggle("Auto Kill All (ULT) (not work)", function(value)
     if value then
         startScript() -- Toggle açıldığında script başlatılır
     else
