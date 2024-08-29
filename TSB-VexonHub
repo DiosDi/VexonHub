@@ -88,7 +88,7 @@ local SaitamaCheats = PhantomForcesWindow:NewSection("Saitama")
 workspace.FallenPartsDestroyHeight = 0/0
 
 local animations = {
-    ["rbxassetid://11343250001"] = 0.1
+    ["rbxassetid://11343250001"] = 0.001
 }
 
 function ifind(t, a)
@@ -130,7 +130,7 @@ local function startScript()
 
                         -- Pozisyona geri dön
                         character.HumanoidRootPart.CFrame = CFrame.new(startPosition)
-                        task.wait(3)
+                        task.wait(0.8)
 
                         -- Kamera modunu serbest bırak
                         Camera.CameraType = Enum.CameraType.Custom
@@ -363,167 +363,52 @@ GarouCheats:CreateToggle("Auto Pixel", function(value)
     end
 end)
 
---🟦Garou Prison🟦
-
-workspace.FallenPartsDestroyHeight = 0/0
-
-local animations = {
-    ["rbxassetid://12273188754"] = 1,
-    ["rbxassetid://12296113986"] = 1,
-}
-
-function ifind(t, a)
-    for i, v in pairs(t) do
-        if i == a then
-            return i
-        end
-    end
-    return false
-end
-
-local plr = game.Players.LocalPlayer
-
-local function startScript()
-    getgenv().loop = coroutine.create(function()
-        local dothetech = false
-        local lastcf
-        while task.wait() do
-            local character = plr.Character
-            local animate = character.Humanoid.Animator
-
-            for i, v in pairs(animate:GetPlayingAnimationTracks()) do
-                if ifind(animations, v.Animation.AnimationId) then
-                    task.wait(animations[v.Animation.AnimationId])
-                    dothetech = true
-                    lastcf = character.HumanoidRootPart.CFrame
-                    v.Stopped:Connect(function()
-                        dothetech = false
-                    end)
-                    repeat
-                        wait()
-                        workspace.Camera.CameraType = Enum.CameraType.Scriptable
-                        character.HumanoidRootPart.CFrame = CFrame.new(150, 330, 30)
-                        character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.zero
-                        character.HumanoidRootPart.AssemblyAngularVelocity = Vector3.zero
-                    until not dothetech
-                    task.wait(1)
-                    character.HumanoidRootPart.CFrame = lastcf
-                    workspace.Camera.CameraType = Enum.CameraType.Custom
-                    workspace.Camera.CameraSubject = character.Humanoid
-                    task.wait(1)
-                end
-            end
-        end
-    end)
-    coroutine.resume(getgenv().loop)
-end
-
-local function stopScript()
-    if getgenv().loop then
-        coroutine.close(getgenv().loop)
-        getgenv().loop = nil
-    end
-end
-
--- Toggle işlevi
-GarouCheats:CreateToggle("Auto Prison", function(value)
-    if value then
-        startScript() -- Toggle açıldığında script başlatılır
-    else
-        stopScript() -- Toggle kapatıldığında script durdurulur
-    end
-end)
-
 -- 📂🟩Tatsumaki Pencere🟩📂
 local TatsumakiCheats = PhantomForcesWindow:NewSection("Tatsumaki")
 
 --🟩KillAll Tatsumaki🟩
-local animations = {
-    ["rbxassetid://16734584478"] = 0,
-}
+KillingCheats:CreateTextbox("For KillAll Use Ult And Press", function(text)
+end)
+TatsumakiCheats:CreateButton("KillAll (ult)", function()
 
-function ifind(t, a)
-    for i, v in pairs(t) do
-        if i == a then
-            return i
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local camera = game.Workspace.CurrentCamera
+
+-- Function to teleport to each player
+local function teleportToPlayers()
+    -- Sabit kamera pozisyonunu ayarla
+    local originalCameraType = camera.CameraType
+    local originalCameraCFrame = camera.CFrame
+    camera.CameraType = Enum.CameraType.Scriptable
+    camera.CFrame = originalCameraCFrame
+
+    -- Her oyuncuya teleport ol
+    for _, targetPlayer in ipairs(Players:GetPlayers()) do
+        if targetPlayer ~= player and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+            wait(0.1)  -- 0.1 saniye bekleyin
         end
     end
-    return false
+
+    -- Belirli bir koordinata teleport ol
+    local targetPosition = CFrame.new(0, 500000000, 0)  -- İlk hedef koordinatlar
+    player.Character.HumanoidRootPart.CFrame = targetPosition
+
+    wait(4)  -- 4 saniye bekleyin
+
+    -- Farklı bir koordinata teleport ol
+    local finalPosition = CFrame.new(100, 50, 100)  -- Son hedef koordinatlar
+    player.Character.HumanoidRootPart.CFrame = finalPosition
+
+    -- Kamera modunu eski haline getir
+    wait(1)  -- Biraz bekleyin ki son teleport işlemi sonrası kamera değişikliği daha yumuşak olsun
+    camera.CameraType = originalCameraType
+    camera.CFrame = originalCameraCFrame
 end
 
-local plr = game.Players.LocalPlayer
-
-local function teleportToPlayer(targetPlayer)
-    if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
-        plr.Character:SetPrimaryPartCFrame(targetPlayer.Character.HumanoidRootPart.CFrame)
-    end
-end
-
-local function startTeleportation(interval)
-    local players = game.Players:GetPlayers()
-    local playerIndex = table.find(players, plr)
-
-    if not playerIndex then return end
-
-    for i = 1, #players do
-        local nextIndex = (playerIndex + i - 1) % #players + 1
-        local nextPlayer = players[nextIndex]
-        teleportToPlayer(nextPlayer)
-        task.wait(interval)
-    end
-end
-
-local function startScript()
-    getgenv().loop = coroutine.create(function()
-        local dothetech = false
-        local lastcf
-        while task.wait() do
-            local character = plr.Character
-            local animate = character.Humanoid.Animator
-
-            for i, v in pairs(animate:GetPlayingAnimationTracks()) do
-                if ifind(animations, v.Animation.AnimationId) then
-                    task.wait(animations[v.Animation.AnimationId])
-                    dothetech = true
-                    lastcf = character.HumanoidRootPart.CFrame
-                    v.Stopped:Connect(function()
-                        dothetech = false
-                    end)
-                    repeat
-                        task.wait()
-                        workspace.Camera.CameraType = Enum.CameraType.Scriptable
-                        startTeleportation(0.1)
-                        task.wait(0.1)
-character.HumanoidRootPart.CFrame = CFrame.new(1000000, 1000000, 1000000) -- Pozisyonu buraya girin
-                        character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.zero
-                        character.HumanoidRootPart.AssemblyAngularVelocity = Vector3.zero
-                    until not dothetech
-                    task.wait(1)
-                    character.HumanoidRootPart.CFrame = lastcf
-                    workspace.Camera.CameraType = Enum.CameraType.Custom
-                    workspace.Camera.CameraSubject = character.Humanoid
-                    task.wait(1)
-                end
-            end
-        end
-    end)
-    coroutine.resume(getgenv().loop)
-end
-
-local function stopScript()
-    if getgenv().loop then
-        coroutine.close(getgenv().loop)
-        getgenv().loop = nil
-    end
-end
-
--- Toggle işlevi
-TatsumakiCheats:CreateToggle("Auto Kill All (ULT) (not work)", function(value)
-    if value then
-        startScript() -- Toggle açıldığında script başlatılır
-    else
-        stopScript() -- Toggle kapatıldığında script durdurulur
-    end
+-- Call the function
+teleportToPlayers()
 end)
 
 
