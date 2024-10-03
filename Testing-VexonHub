@@ -1,0 +1,193 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+
+local PhantomForcesWindow = Library:NewWindow("FeNuke - VexonHub")
+
+local Nuke = PhantomForcesWindow:NewSection("Fe Nuke")
+
+
+
+
+Nuke:CreateButton("Normal Nuke", function()
+--normal nuke
+
+local character = game.Players.LocalPlayer.Character
+local humanoid = character:WaitForChild("Humanoid")
+
+-- Animasyonun yüklü olduğu Animation nesnesini bul
+local animation = Instance.new("Animation")
+animation.AnimationId = "rbxassetid://16719053698"  -- Buraya animasyon ID'sini yaz
+
+local animTrack = humanoid:LoadAnimation(animation)
+
+-- Animasyonu başlat
+animTrack:Play()
+
+-- Animasyonu başlattıktan hemen sonra 2. saniyeye atla
+animTrack.TimePosition = 5.65
+end)
+
+
+
+
+Nuke:CreateButton("Mini Nuke", function()
+--mini nuke
+
+local character = game.Players.LocalPlayer.Character
+local humanoid = character:WaitForChild("Humanoid")
+
+-- Animasyonun yüklü olduğu Animation nesnesini bul
+local animation = Instance.new("Animation")
+animation.AnimationId = "rbxassetid://16719053698"  -- Buraya animasyon ID'sini yaz
+
+local animTrack = humanoid:LoadAnimation(animation)
+
+-- Animasyonu başlat
+animTrack:Play()
+
+-- Animasyonu başlattıktan hemen sonra 2. saniyeye atla
+animTrack.TimePosition = 5
+end)
+
+
+Nuke:CreateButton("Spin Nuke", function()
+--spin+nuke
+local character = game.Players.LocalPlayer.Character
+local humanoid = character:WaitForChild("Humanoid")
+
+-- Animasyonun yüklü olduğu Animation nesnesini bul
+local animation = Instance.new("Animation")
+animation.AnimationId = "rbxassetid://16719053698"  -- Buraya animasyon ID'sini yaz
+
+local animTrack = humanoid:LoadAnimation(animation)
+
+-- Animasyonu başlat
+animTrack:Play()
+
+-- Animasyonu başlattıktan hemen sonra 2. saniyeye atla
+animTrack.TimePosition = 5.65
+
+
+local animationId = "rbxassetid://16719053698"
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local animation = Instance.new("Animation")
+    animation.AnimationId = animationId
+    local animTrack = humanoid:LoadAnimation(animation)
+    animTrack:Play()
+end)
+
+
+Nuke:CreateButton("Fe Hunt Anim", function()
+--spin+nuke
+local animationId = "rbxassetid://16719053698"
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local animation = Instance.new("Animation")
+    animation.AnimationId = animationId
+    local animTrack = humanoid:LoadAnimation(animation)
+    animTrack:Play()
+end)
+
+
+
+local Gojo = PhantomForcesWindow:NewSection("Gojo Satoru")
+
+Gojo:CreateButton("Repulse", function()
+local animationId = "rbxassetid://13073745835"
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local animation = Instance.new("Animation")
+    animation.AnimationId = animationId
+    local animTrack = humanoid:LoadAnimation(animation)
+    animTrack:Play()
+end)
+
+
+Gojo:CreateButton("Erase", function()
+local animationId = "rbxassetid://13071982935"
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local animation = Instance.new("Animation")
+    animation.AnimationId = animationId
+    local animTrack = humanoid:LoadAnimation(animation)
+    animTrack:Play()
+end)
+
+
+Gojo:CreateButton("Attract", function()
+local animationId = "rbxassetid://13560306510"
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local animation = Instance.new("Animation")
+    animation.AnimationId = animationId
+    local animTrack = humanoid:LoadAnimation(animation)
+    animTrack:Play()
+end)
+
+
+Gojo:CreateButton("Attract (infinity)", function()
+local animationId = "rbxassetid://15121659862"
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local animation = Instance.new("Animation")
+    animation.AnimationId = animationId
+    local animTrack = humanoid:LoadAnimation(animation)
+    animTrack:Play()
+end)
+
+
+Gojo:CreateButton("Wall Combo", function()
+local animationId = "rbxassetid://18903642853"
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local animation = Instance.new("Animation")
+    animation.AnimationId = animationId
+    local animTrack = humanoid:LoadAnimation(animation)
+    animTrack:Play()
+end)
+
+
+Gojo:CreateButton("Wall Combo (Victim)", function()
+local animationId = "rbxassetid://18903644685"
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local animation = Instance.new("Animation")
+    animation.AnimationId = animationId
+    local animTrack = humanoid:LoadAnimation(animation)
+    animTrack:Play()
+end)
+
+
+local KJ = PhantomForcesWindow:NewSection("KJ")
+
+
+KJ:CreateButton("20-20-20 Dropkick (Victim)", function()
+local animationId = "rbxassetid://17363256069"
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local animation = Instance.new("Animation")
+    animation.AnimationId = animationId
+    local animTrack = humanoid:LoadAnimation(animation)
+    animTrack:Play()
+end)
+
+
+KJ:CreateButton("Swift Sweep (Victim)", function()
+local animationId = "rbxassetid://16945557433"
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local animation = Instance.new("Animation")
+    animation.AnimationId = animationId
+    local animTrack = humanoid:LoadAnimation(animation)
+    animTrack:Play()
+end)
