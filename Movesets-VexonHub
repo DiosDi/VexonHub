@@ -1,4 +1,4 @@
-local TabMoveset = DrRayLibrary.newTab("MoveSets","http://www.roblox.com/asset/?id=9405930424");
+
 
 TabMoveset.newButton("Copy Discord Link", "Join Dc For Free Bobuc :0", function()
 
