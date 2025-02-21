@@ -1,51 +1,26 @@
+loadstring(game:HttpGet("https://pastebin.com/raw/KVK2aScG"))()
+
 local gameId = game.PlaceId
 
 if gameId == 130818724007978 or gameId == 12360882630 or gameId == 10449761463 or gameId == 131048399685555 then
     -- The Strongest Battle Grounds
-    
-    local CoreGui = game:GetService("StarterGui")
-    CoreGui:SetCore("SendNotification", {
-        Title = "VexonHub",
-        Text = "The Strongest Battle Grounds Script Loading",
-        Duration = 1,
-    })
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/TSBG-VexonHub"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/TSBG-VexonHub"))()
 
 
 elseif gameId == 142823291 then
     -- Murder Mystery 2
-    
-    local CoreGui = game:GetService("StarterGui")
-    CoreGui:SetCore("SendNotification", {
-        Title = "VexonHub",
-        Text = "Murder Mystery 2 Script Loading",
-        Duration = 1,
-    })
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/MM2-VexonHub"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/MM2-VexonHub"))()
 
 
 elseif gameId == 6403373529 or gameId == 11520107397 then 
     -- Slap Battles
-    
-    local CoreGui = game:GetService("StarterGui")
-    CoreGui:SetCore("SendNotification", {
-        Title = "VexonHub",
-        Text = "Slap Battle Script Loading",
-        Duration = 1,
-    })
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/SB-VexonHub"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/SB-VexonHub"))()
 
 
 elseif gameId == 537413528 then
-    -- Build a Boat For Treasure
-    
-    local CoreGui = game:GetService("StarterGui")
-    CoreGui:SetCore("SendNotification", {
-        Title = "VexonHub",
-        Text = "Build a Boat For Treasure Script Loading",
-        Duration = 1,
-    })
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/BABFT-VexonHub"))()
+-- Build a Boat For Treasure
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/BABFT-VexonHub"))()
+
 
 else
     local CoreGui = game:GetService("StarterGui")
