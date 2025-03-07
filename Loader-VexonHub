@@ -1,0 +1,41 @@
+local CoreGui = game:GetService("StarterGui")
+    CoreGui:SetCore("SendNotification", {
+        Title = "VexonHub",
+        Text = "Script By TheVex0n",
+        Icon = "http://www.roblox.com/asset/?id=84519376661277",
+        Duration = 10,
+        Callback = AllowRunServiceBind,
+    })
+
+local gameId = game.PlaceId
+
+if gameId == 130818724007978 or gameId == 12360882630 or gameId == 10449761463 or gameId == 131048399685555 then
+    -- The Strongest Battle Grounds
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/TSBG-VexonHub"))()
+
+
+elseif gameId == 142823291 then
+    -- Murder Mystery 2
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/MM2-VexonHub"))()
+
+
+elseif gameId == 6403373529 or gameId == 11520107397 then 
+    -- Slap Battles
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/SB-VexonHub"))()
+
+
+elseif gameId == 537413528 then
+-- Build a Boat For Treasure
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/BABFT-VexonHub"))()
+
+
+else
+    local CoreGui = game:GetService("StarterGui")
+    CoreGui:SetCore("SendNotification", {
+        Title = "VexonHub",
+        Text = "Script Not Supports This Game!",
+        Icon = "http://www.roblox.com/asset/?id=84519376661277",
+        Duration = 10,
+        Callback = AllowRunServiceBind,
+    })
+end
