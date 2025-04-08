@@ -35,7 +35,7 @@ function SendMessageEMBED(url, embed)
                 ["thumbnail"] = embed.thumbnail    
             }  
         },  
-        ["username"] = "Users Notification",  
+        ["username"] = "VexonHub's Slave",  
         ["avatar_url"] = "https://cdn.mangacix.net/file/mangacix/1739985295549.png" -- Webhook PFP
     }  
     local body = http:JSONEncode(data)  
