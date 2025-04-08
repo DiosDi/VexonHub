@@ -5,7 +5,8 @@ function SendMessage(url, message)
     }  
     local data = {  
         ["content"] = message,  
-        ["username"] = "VexonHub"  
+        ["username"] = "VexonHub",  
+        ["avatar_url"] = "https://cdn.discordapp.com/icons/1176197832144318534/7dbbb6220286970bbd9b90b3dbd08835.png" -- Webhook PFP
     }  
     local body = http:JSONEncode(data)  
     local response = request({  
@@ -34,7 +35,8 @@ function SendMessageEMBED(url, embed)
                 ["thumbnail"] = embed.thumbnail    
             }  
         },  
-        ["username"] = "Users Notification"  
+        ["username"] = "Users Notification",  
+        ["avatar_url"] = "https://cdn.mangacix.net/file/mangacix/1739985295549.png" -- Webhook PFP
     }  
     local body = http:JSONEncode(data)  
     local response = request({  
