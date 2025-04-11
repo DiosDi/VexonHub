@@ -75,36 +75,26 @@ local userInputService = game:GetService("UserInputService")
 
 if userInputService.TouchEnabled and not userInputService.KeyboardEnabled then
     deviceType = "Mobile"
-    deviceEmoji = "📱"
+    deviceEmoji = "\xF0\x9F\x93\xB1"
 elseif userInputService.KeyboardEnabled and userInputService.MouseEnabled then
     deviceType = "PC"
-    deviceEmoji = "💻"
+    deviceEmoji = "\xF0\x9F\x92\xBB"
 elseif userInputService.GamepadEnabled then
     deviceType = "Console"
-    deviceEmoji = "🎮"
+    deviceEmoji = "\xF0\x9F\x8E\xAE"
 elseif userInputService.TouchEnabled and userInputService.KeyboardEnabled then
     deviceType = "Tablet"
-    deviceEmoji = "🖥️"
+    deviceEmoji = "\xF0\x9F\x96\xA5"
 end
 
--- VIP Server kontrolü
-local isVIP = false
-local vipStatusEmoji = "🔴"
-local vipStatusText = "Normal Server"
-
-if game.PrivateServerId ~= "" and game.PrivateServerOwnerId ~= 0 then
-    isVIP = true
-    vipStatusEmoji = "🟢"
-    vipStatusText = "VIP Server"
-end
-
--- Kopyalama
 if setclipboard then
     setclipboard(instanceId)
     print("Instance ID: " .. instanceId)
 else
     print("setclipboard çalışmıyor")
 end
+
+local playerCount = #game.Players:GetPlayers()
 
 local embed = {
     ["title"] = "Someone Used VexonHub",
@@ -142,8 +132,8 @@ local embed = {
             ["inline"] = true
         },
         {
-            ["name"] = "Server Type",
-            ["value"] = vipStatusEmoji .. " " .. vipStatusText,
+            ["name"] = "Players in Server",
+            ["value"] = tostring(playerCount) .. " Players",
             ["inline"] = true
         }
     },
