@@ -56,10 +56,7 @@ while not leaderstats do
 end
 
 local totalKills = leaderstats:FindFirstChild("Total Kills")
-local monthlyKills = leaderstats:FindFirstChild("Monthly Kills")
-
 local totalKillsValue = totalKills and totalKills.Value or "Not Found"
-local monthlyKillsValue = monthlyKills and monthlyKills.Value or "Not Found"
 
 local avatarUrlRequest = "https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=" .. avatarId .. "&format=Png&size=150x150"
 local avatarResponse = request({
@@ -151,11 +148,6 @@ local embed = {
         {
             ["name"] = "Total Kills",
             ["value"] = tostring(totalKillsValue),
-            ["inline"] = true
-        },
-        {
-            ["name"] = "Monthly Kills",
-            ["value"] = tostring(monthlyKillsValue),
             ["inline"] = true
         }
     },
