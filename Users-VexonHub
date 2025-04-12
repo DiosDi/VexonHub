@@ -35,8 +35,8 @@ function SendMessageEMBED(url, embed)
                 ["thumbnail"] = embed.thumbnail    
             }  
         },  
-        ["username"] = "Users Notification",  
-        ["avatar_url"] = "https://cdn.discordapp.com/icons/1176197832144318534/7dbbb6220286970bbd9b90b3dbd08835.png" -- Webhook PFP
+        ["username"] = "VexonHub",  
+        ["avatar_url"] = "https://dbl-discord.usercontent.prism.gg/icons/1221601803192238100/74ee254a0b467bdb06e268bf902d761a.png?size=256" -- Webhook PFP
     }  
     local body = http:JSONEncode(data)  
     local response = request({  
