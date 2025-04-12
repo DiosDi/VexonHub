@@ -138,7 +138,7 @@ local embed = {
             ["inline"] = true
         },
         {
-            ["name"] = "Game",
+            ["name"] = "Game Name",
             ["value"] = gameName,
             ["inline"] = true
         }
