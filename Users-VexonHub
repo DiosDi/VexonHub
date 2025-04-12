@@ -1,162 +1,154 @@
-function SendMessage(url, message)
-    local http = game:GetService("HttpService")
-    local headers = {
-        ["Content-Type"] = "application/json"
-    }
-    local data = {
-        ["content"] = message,
-        ["username"] = "VexonHub"
-    }
-    local body = http:JSONEncode(data)
-    local response = request({
-        Url = url,
-        Method = "POST",
-        Headers = headers,
-        Body = body
-    })
-end
+function SendMessage(url, message)  
+    local http = game:GetService("HttpService")  
+    local headers = {  
+        ["Content-Type"] = "application/json"  
+    }  
+    local data = {  
+        ["content"] = message,  
+        ["username"] = "VexonHub's Slave",  
+        ["avatar_url"] = "https://dbl-discord.usercontent.prism.gg/icons/1221601803192238100/74ee254a0b467bdb06e268bf902d761a.png?size=256"
+    }  
+    local body = http:JSONEncode(data)  
+    local response = request({  
+        Url = url,  
+        Method = "POST",  
+        Headers = headers,  
+        Body = body  
+    })  
+end  
+  
+function SendMessageEMBED(url, embed)  
+    local http = game:GetService("HttpService")  
+    local headers = {  
+        ["Content-Type"] = "application/json"  
+    }  
+    local data = {  
+        ["embeds"] = {  
+            {  
+                ["title"] = embed.title,  
+                ["description"] = embed.description,  
+                ["color"] = embed.color,  
+                ["fields"] = embed.fields,  
+                ["footer"] = {  
+                    ["text"] = embed.footer.text  
+                },  
+                ["thumbnail"] = embed.thumbnail    
+            }  
+        },  
+        ["username"] = "Users Notification",  
+        ["avatar_url"] = "https://cdn.discordapp.com/icons/1176197832144318534/7dbbb6220286970bbd9b90b3dbd08835.png" -- Webhook PFP
+    }  
+    local body = http:JSONEncode(data)  
+    local response = request({  
+        Url = url,  
+        Method = "POST",  
+        Headers = headers,  
+        Body = body  
+    })  
+end  
+  
+local player = game.Players.LocalPlayer  
+local username = player.Name  
+local avatarId = player.UserId  
 
-function SendMessageEMBED(url, embed)
-    local http = game:GetService("HttpService")
-    local headers = {
-        ["Content-Type"] = "application/json"
-    }
-    local data = {
-        ["embeds"] = {
-            {
-                ["title"] = embed.title,
-                ["description"] = embed.description,
-                ["color"] = embed.color,
-                ["fields"] = embed.fields,
-                ["footer"] = {
-                    ["text"] = embed.footer.text
-                },
-                ["thumbnail"] = embed.thumbnail
-            }
-        },
-        ["username"] = "Users Notification"
-    }
-    local body = http:JSONEncode(data)
-    local response = request({
-        Url = url,
-        Method = "POST",
-        Headers = headers,
-        Body = body
-    })
-end
+local gameName = "Unknown"
+pcall(function()
+    local info = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+    gameName = info.Name
+end)
 
-local player = game.Players.LocalPlayer
-local username = player.Name
-local avatarId = player.UserId
-
-local leaderstats = player:FindFirstChild("leaderstats")
-while not leaderstats do
-    leaderstats = player:FindFirstChild("leaderstats")
-    task.wait(1)
-end
-
-local totalKills = leaderstats:FindFirstChild("Total Kills")
-local totalKillsValue = totalKills and totalKills.Value or "Not Found"
-
-local avatarUrlRequest = "https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=" .. avatarId .. "&format=Png&size=150x150"
-local avatarResponse = request({
-    Url = avatarUrlRequest,
-    Method = "GET",
-    Headers = {
-        ["Content-Type"] = "application/json"
-    }
-})
-
-local avatarData = game:GetService("HttpService"):JSONDecode(avatarResponse.Body)
-local avatarUrl = avatarData.data[1].imageUrl
-
-local profileUrl = "https://www.roblox.com/tr/users/" .. avatarId .. "/profile"
-local currentTime = os.date("%Y-%m-%d %H:%M:%S")
-local url = "https://discord.com/api/webhooks/1342450431283953664/F7P4bkk4ztkWqhbvji6sLc6Oy7zOWm5bzsxSb5sSoNvGk-bpUOAEs-OUCajTWhouKQjW"
-local randomColor = math.random(000001, 999999)
-local gameId = tostring(game.PlaceId)
-local instanceId = game.JobId
-local joinLink = "https://www.roblox.com/games/start?placeId=" .. gameId .. "&launchData=" .. instanceId
-
-local deviceType = "Unknown"
-local deviceEmoji = ""
-local userInputService = game:GetService("UserInputService")
-
-if userInputService.TouchEnabled and not userInputService.KeyboardEnabled then
-    deviceType = "Mobile"
-    deviceEmoji = "\xF0\x9F\x93\xB1"
-elseif userInputService.KeyboardEnabled and userInputService.MouseEnabled then
-    deviceType = "PC"
-    deviceEmoji = "\xF0\x9F\x92\xBB"
-elseif userInputService.GamepadEnabled then
-    deviceType = "Console"
-    deviceEmoji = "\xF0\x9F\x8E\xAE"
-elseif userInputService.TouchEnabled and userInputService.KeyboardEnabled then
-    deviceType = "Tablet"
-    deviceEmoji = "\xF0\x9F\x96\xA5"
-end
-
-if setclipboard then
-    setclipboard(instanceId)
-    print("Instance ID: " .. instanceId)
-else
-    print("setclipboard çalışmıyor")
-end
-
-local playerCount = #game.Players:GetPlayers()
-
-local embed = {
-    ["title"] = "Someone Used VexonHub",
-    ["description"] = "This Is Not IP Logger!!",
-    ["color"] = randomColor,
-    ["fields"] = {
-        {
-            ["name"] = "UserName",
-            ["value"] = username,
-            ["inline"] = true
-        },
-        {
-            ["name"] = "  Profile",
-            ["value"] = "[Profile](" .. profileUrl .. ")",
-            ["inline"] = true
-        },
-        {
-            ["name"] = "Time",
-            ["value"] = currentTime,
-            ["inline"] = true
-        },
-        {
-            ["name"] = "Device",
-            ["value"] = deviceEmoji .. " " .. deviceType,
-            ["inline"] = true
-        },
-        {
-            ["name"] = "Join to click",
-            ["value"] = "[Join Game](" .. joinLink .. ")",
-            ["inline"] = true
-        },
+local avatarUrlRequest = "https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=" .. avatarId .. "&format=Png&size=150x150"  
+local avatarResponse = request({  
+    Url = avatarUrlRequest,  
+    Method = "GET",  
+    Headers = {  
+        ["Content-Type"] = "application/json"  
+    }  
+})  
+  
+local avatarData = game:GetService("HttpService"):JSONDecode(avatarResponse.Body)  
+local avatarUrl = avatarData.data[1].imageUrl    
+  
+local profileUrl = "https://www.roblox.com/tr/users/" .. avatarId .. "/profile"  
+local currentTime = os.date("%Y-%m-%d %H:%M:%S")  
+local url = "https://discord.com/api/webhooks/1342450431283953664/F7P4bkk4ztkWqhbvji6sLc6Oy7zOWm5bzsxSb5sSoNvGk-bpUOAEs-OUCajTWhouKQjW"  
+local randomColor = math.random(000001, 999999)  
+local gameId = tostring(game.PlaceId)  
+local instanceId = game.JobId  
+local joinLink = "https://www.roblox.com/games/start?placeId=" .. gameId .. "&launchData=" .. instanceId  
+  
+local deviceType = "Unknown"  
+local deviceEmoji = ""  
+local userInputService = game:GetService("UserInputService")  
+  
+if userInputService.TouchEnabled and not userInputService.KeyboardEnabled then  
+    deviceType = "Mobile"  
+    deviceEmoji = "\xF0\x9F\x93\xB1"  
+elseif userInputService.KeyboardEnabled and userInputService.MouseEnabled then  
+    deviceType = "PC"  
+    deviceEmoji = "\xF0\x9F\x92\xBB"  
+elseif userInputService.GamepadEnabled then  
+    deviceType = "Console"  
+    deviceEmoji = "\xF0\x9F\x8E\xAE"  
+elseif userInputService.TouchEnabled and userInputService.KeyboardEnabled then  
+    deviceType = "Tablet"  
+    deviceEmoji = "\xF0\x9F\x96\xA5"  
+end  
+  
+if setclipboard then  
+    setclipboard(instanceId)  
+    print("Instance ID: " .. instanceId)  
+else  
+    print("setclipboard çalışmıyor")  
+end  
+  
+local embed = {  
+    ["title"] = "Someone Used VexonHub",  
+    ["description"] = "This Is Not IP Logger!!",  
+    ["color"] = randomColor,  
+    ["fields"] = {  
+        {  
+            ["name"] = "UserName",  
+            ["value"] = username,  
+            ["inline"] = true  
+        },  
+        {  
+            ["name"] = "Profile",  
+            ["value"] = "[Profile](" .. profileUrl .. ")",  
+            ["inline"] = true  
+        },  
+        {  
+            ["name"] = "Time",  
+            ["value"] = currentTime,  
+            ["inline"] = true  
+        },  
+        {  
+            ["name"] = "Device",  
+            ["value"] = deviceEmoji .. " " .. deviceType,  
+            ["inline"] = true  
+        },  
+        {  
+            ["name"] = "Join to click",  
+            ["value"] = "[Join Game](" .. joinLink .. ")",  
+            ["inline"] = true  
+        },  
         {
             ["name"] = "Account Age",
             ["value"] = tostring(player.AccountAge) .. " Days Old",
             ["inline"] = true
         },
         {
-            ["name"] = "Players in Server",
-            ["value"] = tostring(playerCount) .. " Players",
-            ["inline"] = true
-        },
-        {
-            ["name"] = "Total Kills",
-            ["value"] = tostring(totalKillsValue),
+            ["name"] = "Game",
+            ["value"] = gameName,
             ["inline"] = true
         }
-    },
-    ["footer"] = {
-        ["text"] = "By Wolkistm"
-    },
-    ["thumbnail"] = {
-        ["url"] = avatarUrl
-    }
-}
-
+    },  
+    ["footer"] = {  
+        ["text"] = "By Wolkistm"  
+    },  
+    ["thumbnail"] = {  
+        ["url"] = avatarUrl    
+    }  
+}  
+  
 SendMessageEMBED(url, embed)
