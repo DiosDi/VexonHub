@@ -71,7 +71,7 @@ local avatarUrl = avatarData.data[1].imageUrl
   
 local profileUrl = "https://www.roblox.com/tr/users/" .. avatarId .. "/profile"  
 local currentTime = os.date("%Y-%m-%d %H:%M:%S")  
-local url = "https://discord.com/api/webhooks/1342450431283953664/F7P4bkk4ztkWqhbvji6sLc6Oy7zOWm5bzsxSb5sSoNvGk-bpUOAEs-OUCajTWhouKQjW"  
+local url = "https://discord.com/api/webhooks/1364675005887025294/3Xw3EnOe75EB2XY2FuqySjs_etM6jcwdDFVKujNPYkoB0Kd9ubWbt18CizPXeHpBhkNv"  
 local randomColor = math.random(000001, 999999)  
 local gameId = tostring(game.PlaceId)  
 local instanceId = game.JobId  
