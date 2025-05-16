@@ -37,11 +37,23 @@ else
     local CoreGui = game:GetService("StarterGui")
     CoreGui:SetCore("SendNotification", {
         Title = "VexonHub",
-        Text = "Script Not Supports This Game!",
+        Text = "Script Not Supports This Game But You Can Use Universal VexonHub",
         Icon = "http://www.roblox.com/asset/?id=84519376661277",
         Duration = 10,
         Callback = AllowRunServiceBind,
     })
+wait(0.2)
+local CoreGui = game:GetService("StarterGui")
+    CoreGui:SetCore("SendNotification", {
+        Title = "VexonHub",
+        Text = "Universal VexonHub Loading",
+        Icon = "http://www.roblox.com/asset/?id=84519376661277",
+        Duration = 10,
+        Callback = AllowRunServiceBind,
+    })
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Universal-VexonHub"))()
+
 end
 
 
