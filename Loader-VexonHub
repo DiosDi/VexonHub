@@ -35,7 +35,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/
 
 elseif gameId == 189707 then
 -- Natural Disaster Survival
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/NDS-VexonHub"))()
 
 
 else
