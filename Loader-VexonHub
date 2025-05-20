@@ -33,6 +33,11 @@ elseif gameId == 537413528 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/BABFT-VexonHub"))()
 
 
+elseif gameId == 189707 then
+-- Natural Disaster Survival
+
+
+
 else
     local CoreGui = game:GetService("StarterGui")
     CoreGui:SetCore("SendNotification", {
