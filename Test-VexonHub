@@ -1421,7 +1421,7 @@ function UILIB:Load(name, img, direction)
 					if v.BackgroundColor3 == Color3.fromRGB(39, 44, 61) then
 						v.BackgroundColor3 = color
 						GlobalColor1 = color
-					elseif v.BackgroundColor3 == Color3.fromRGB(0, 255, 38) then
+					elseif v.BackgroundColor3 == Color3.fromRGB(128, 0, 128) then
 						v.BackgroundColor3 = color2
 						GlobalColor2 = color2
 					end
