@@ -803,7 +803,7 @@ DRR["61"]["Position"] = UDim2.new(0.017191976308822632, 0, 0.10911344736814499, 
 -- DrRay.Folder.Slider.ActualSlider
 DRR["62"] = Instance.new("Frame", DRR["5e"]);
 DRR["62"]["BorderSizePixel"] = 0;
-DRR["62"]["BackgroundColor3"] = Color3.fromRGB(0, 255, 39);
+DRR["62"]["BackgroundColor3"] = Color3.fromRGB(128, 0, 128);
 DRR["62"]["Size"] = UDim2.new(0.9684813618659973, 0, 0.29096919298171997, 0);
 DRR["62"]["ClipsDescendants"] = true;
 DRR["62"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
