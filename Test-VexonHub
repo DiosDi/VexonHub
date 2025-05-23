@@ -1787,7 +1787,68 @@ end
 
 
 
+-- Add this function to your UILIB library (inside the Library module script)
 
+function UILIB:AddSizeSelector()
+    local sizes = {
+        Small = 0.8,
+        Medium = 1.0,
+        Large = 1.2
+    }
+    
+    local currentSize = "Medium"
+    
+    -- Create a dropdown for size selection
+    self:newDropdown("GUI Size", "Change the size of the interface", {"Small", "Medium", "Large"}, function(selectedSize)
+        currentSize = selectedSize
+        local scale = sizes[selectedSize]
+        
+        -- Get all main GUI components
+        local mainComponents = {
+            script.Parent.MainBar,
+            script.Parent.TopBar
+        }
+        
+        -- Tween all components to new size
+        for _, component in pairs(mainComponents) do
+            local currentSize = component.Size
+            local newSize = UDim2.new(
+                currentSize.X.Scale * scale,
+                currentSize.X.Offset * scale,
+                currentSize.Y.Scale * scale,
+                currentSize.Y.Offset * scale
+            )
+            
+            local tween = twServ:Create(component, TweenInfo.new(0.3), {Size = newSize})
+            tween:Play()
+        end
+        
+        -- Also scale font sizes if needed
+        local textLabels = script.Parent:GetDescendants()
+        for _, label in pairs(textLabels) do
+            if label:IsA("TextLabel") or label:IsA("TextBox") then
+                local currentSize = label.TextSize
+                local newSize = currentSize * scale
+                
+                local tween = twServ:Create(label, TweenInfo.new(0.3), {TextSize = newSize})
+                tween:Play()
+            end
+        end
+    end)
+    
+    return {
+        GetCurrentSize = function()
+            return currentSize
+        end,
+        SetSize = function(size)
+            if sizes[size] then
+                currentSize = size
+                -- Trigger resize
+                self:newDropdown("GUI Size", "", {size}, function() end)
+            end
+        end
+    }
+end
 
 
 
