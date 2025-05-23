@@ -1787,8 +1787,6 @@ end
 
 
 
--- Add this function to your UILIB library (inside the Library module script)
-
 function UILIB:AddSizeSelector()
     local sizes = {
         Small = 0.8,
@@ -1798,18 +1796,18 @@ function UILIB:AddSizeSelector()
     
     local currentSize = "Medium"
     
-    -- Create a dropdown for size selection
+    -- Düzeltme: Dropdown'un doğru çalışması için gerekli ayarlar
     self:newDropdown("GUI Size", "Change the size of the interface", {"Small", "Medium", "Large"}, function(selectedSize)
         currentSize = selectedSize
         local scale = sizes[selectedSize]
         
-        -- Get all main GUI components
+        -- Ana GUI bileşenlerini al
         local mainComponents = {
             script.Parent.MainBar,
             script.Parent.TopBar
         }
         
-        -- Tween all components to new size
+        -- Tüm bileşenleri yeni boyuta tweenle
         for _, component in pairs(mainComponents) do
             local currentSize = component.Size
             local newSize = UDim2.new(
@@ -1823,7 +1821,7 @@ function UILIB:AddSizeSelector()
             tween:Play()
         end
         
-        -- Also scale font sizes if needed
+        -- Yazı boyutlarını da ölçeklendir
         local textLabels = script.Parent:GetDescendants()
         for _, label in pairs(textLabels) do
             if label:IsA("TextLabel") or label:IsA("TextBox") then
@@ -1836,6 +1834,14 @@ function UILIB:AddSizeSelector()
         end
     end)
     
+    -- DÜZELTME: Dropdown'un açılması için gerekli ayarlar
+    local dropdown = script.Parent.MainBar.Settings.Dropdown -- "Settings" yerine kendi tab adınızı yazın
+    if dropdown then
+        dropdown.Box.ScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+        dropdown.Box.ScrollingFrame.ScrollBarThickness = 5
+        dropdown.Box.ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+    end
+    
     return {
         GetCurrentSize = function()
             return currentSize
@@ -1843,7 +1849,7 @@ function UILIB:AddSizeSelector()
         SetSize = function(size)
             if sizes[size] then
                 currentSize = size
-                -- Trigger resize
+                -- Boyut değişikliğini tetikle
                 self:newDropdown("GUI Size", "", {size}, function() end)
             end
         end
