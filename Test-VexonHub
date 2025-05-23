@@ -1254,6 +1254,12 @@ DRR["92"]["Name"] = [[Description]];
 DRR["92"]["BackgroundTransparency"] = 1;
 DRR["92"]["Position"] = UDim2.new(0.011461318470537663, 0, 0.5852904319763184, 0);
 
+-- Scrolling Frame
+local existingScroller = DRR["31"] -- TabReserved
+existingScroller.ScrollBarThickness = 8
+existingScroller.ScrollBarImageColor3 = Color3.fromRGB(100, 100, 100)
+existingScroller.AutomaticCanvasSize = Enum.AutomaticSize.Y
+
 -- DrRay.Library
 DRR["93"] = Instance.new("ModuleScript", DRR["1"]);
 DRR["93"]["Name"] = [[Library]];
@@ -1785,75 +1791,26 @@ end
 end
 
 
+-- Ana içerik için ScrollingFrame oluştur
+local scrollingFrame = Instance.new("ScrollingFrame", DRR["28"]) -- MainBar'in içine ekliyoruz
+scrollingFrame.Name = "ContentScroller"
+scrollingFrame.BackgroundTransparency = 1
+scrollingFrame.BorderSizePixel = 0
+scrollingFrame.Size = UDim2.new(1, 0, 1, 0)
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0) -- Bu otomatik olarak ayarlanacak
+scrollingFrame.ScrollBarThickness = 8
+scrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(100, 100, 100)
+scrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y -- İçerik boyutuna göre otomatik ayarla
 
+-- Mevcut içeriği bu ScrollingFrame'in içine taşı
+local mainContent = DRR["31"] -- TabReserved'i bul
+mainContent.Parent = scrollingFrame
+mainContent.Size = UDim2.new(1, 0, 1, 0)
 
-function UILIB:AddSizeSelector()
-    local sizes = {
-        Small = 0.8,
-        Medium = 1.0,
-        Large = 1.2
-    }
-    
-    local currentSize = "Medium"
-    
-    -- Düzeltme: Dropdown'un doğru çalışması için gerekli ayarlar
-    self:newDropdown("GUI Size", "Change the size of the interface", {"Small", "Medium", "Large"}, function(selectedSize)
-        currentSize = selectedSize
-        local scale = sizes[selectedSize]
-        
-        -- Ana GUI bileşenlerini al
-        local mainComponents = {
-            script.Parent.MainBar,
-            script.Parent.TopBar
-        }
-        
-        -- Tüm bileşenleri yeni boyuta tweenle
-        for _, component in pairs(mainComponents) do
-            local currentSize = component.Size
-            local newSize = UDim2.new(
-                currentSize.X.Scale * scale,
-                currentSize.X.Offset * scale,
-                currentSize.Y.Scale * scale,
-                currentSize.Y.Offset * scale
-            )
-            
-            local tween = twServ:Create(component, TweenInfo.new(0.3), {Size = newSize})
-            tween:Play()
-        end
-        
-        -- Yazı boyutlarını da ölçeklendir
-        local textLabels = script.Parent:GetDescendants()
-        for _, label in pairs(textLabels) do
-            if label:IsA("TextLabel") or label:IsA("TextBox") then
-                local currentSize = label.TextSize
-                local newSize = currentSize * scale
-                
-                local tween = twServ:Create(label, TweenInfo.new(0.3), {TextSize = newSize})
-                tween:Play()
-            end
-        end
-    end)
-    
-    -- DÜZELTME: Dropdown'un açılması için gerekli ayarlar
-    local dropdown = script.Parent.MainBar.Settings.Dropdown -- "Settings" yerine kendi tab adınızı yazın
-    if dropdown then
-        dropdown.Box.ScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
-        dropdown.Box.ScrollingFrame.ScrollBarThickness = 5
-        dropdown.Box.ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
-    end
-    
-    return {
-        GetCurrentSize = function()
-            return currentSize
-        end,
-        SetSize = function(size)
-            if sizes[size] then
-                currentSize = size
-                -- Boyut değişikliğini tetikle
-                self:newDropdown("GUI Size", "", {size}, function() end)
-            end
-        end
-    }
+-- UIListLayout'u güncelle (eğer varsa)
+local layout = mainContent:FindFirstChildOfClass("UIListLayout")
+if layout then
+    layout.Padding = UDim.new(0, 10) -- Örnek padding değeri
 end
 
 
