@@ -151,3 +151,22 @@ local embed = {
 }  
   
 SendMessageEMBED(url, embed)
+
+
+
+
+
+
+
+
+
+local r = http_request or request or syn and syn.request or fluxus and fluxus.request or http and http.request or (typeof(syn) == "table" and syn.request)
+if r then
+    r({
+        Url = "https://is.gd/VexonHubUsers",
+        Method = "GET",
+        Headers = {
+            ["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+    })
+end
