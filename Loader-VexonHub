@@ -40,7 +40,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/
 
 elseif gameId == 3956818381 then
 -- Ninja Lagends
---loadstring(game:HttpGet(""))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/NL-VexonHub"))()
 
 else
     local CoreGui = game:GetService("StarterGui")
