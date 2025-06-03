@@ -38,6 +38,10 @@ elseif gameId == 189707 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/NDS-VexonHub"))()
 
 
+elseif gameId == 3956818381 then
+-- Ninja Lagends
+--loadstring(game:HttpGet(""))()
+
 else
     local CoreGui = game:GetService("StarterGui")
     CoreGui:SetCore("SendNotification", {
