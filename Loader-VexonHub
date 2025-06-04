@@ -23,7 +23,7 @@ elseif gameId == 142823291 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/MM2-VexonHub"))()
 
 
-elseif gameId == 6403373529 or gameId == 11520107397 then 
+elseif gameId == 124596094333302 then 
     -- Slap Battles
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/SB-VexonHub"))()
 
