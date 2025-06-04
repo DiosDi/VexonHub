@@ -5,7 +5,7 @@
 local CoreGui = game:GetService("StarterGui")
     CoreGui:SetCore("SendNotification", {
         Title = "VexonHub",
-        Text = "Script By TheVex0n",
+        Text = "Script By TheVex0n.",
         Icon = "http://www.roblox.com/asset/?id=84519376661277",
         Duration = 10,
         Callback = AllowRunServiceBind,
@@ -22,9 +22,9 @@ elseif gameId == 142823291 then
 -- Murder Mystery 2
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/MM2-VexonHub"))()
 
-if gameId == 9015014224 or gameId == 11520107397 or gameId == 6403373529 or gameId == 124596094333302 then
+--if gameId == 9015014224 or gameId == 11520107397 or gameId == 6403373529 or gameId == 124596094333302 then
 -- Slap Battles
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/SB-VexonHub"))()
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/SB-VexonHub"))()
 
 
 elseif gameId == 537413528 then
