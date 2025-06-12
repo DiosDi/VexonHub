@@ -1821,8 +1821,8 @@ end
         local checkMark = Instance.new("TextLabel")
         checkMark.Name = "CheckMark"
         checkMark.Text = "✓"
-        checkMark.Size = UDim2.new(0, 10, 0, 10)
-        checkMark.Position = UDim2.new(1, -25, 0.5, -5)
+        checkMark.Size = UDim2.new(0, 9, 0, 9)
+        checkMark.Position = UDim2.new(1, -25, 0.5, 0)
         checkMark.AnchorPoint = Vector2.new(1, 0.5)
         checkMark.TextColor3 = Color3.fromRGB(0, 255, 0)
         checkMark.BackgroundTransparency = 1
