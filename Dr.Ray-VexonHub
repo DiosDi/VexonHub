@@ -1254,6 +1254,7 @@ DRR["92"]["Name"] = [[Description]];
 DRR["92"]["BackgroundTransparency"] = 1;
 DRR["92"]["Position"] = UDim2.new(0.011461318470537663, 0, 0.5852904319763184, 0);
 
+
 -- DrRay.Library
 DRR["93"] = Instance.new("ModuleScript", DRR["1"]);
 DRR["93"]["Name"] = [[Library]];
@@ -1436,6 +1437,14 @@ end
 
 
 
+local Sound = Instance.new("Sound")
+Sound.SoundId = "rbxassetid://12221967" -- Buraya kendi ses ID'ni yaz
+Sound.Volume = 1
+Sound.Parent = workspace
+
+local function SesOynat()
+    Sound:Play()
+end
 
 
 
@@ -1494,7 +1503,6 @@ function UILIB.newTab(name, img)
 
 		newbtn.MouseEnter:Connect(function()
 			local twBtn = twServ:Create(newbtn, TweenInfo.new(0.2), { Transparency = 0 })
-
 			twBtn:Play()
 		end)
 		newbtn.MouseLeave:Connect(function()
@@ -1780,16 +1788,100 @@ end
 			end
 		end)
 	end
+	
+	
+	
+	
+	
+	function self.newMultiDropdown(name, desc, listTable, func)
+    local newdd = reserved.Dropdown:Clone()
+    newdd.Visible = true
+    newdd.Parent = newTab
+    
+    newdd.Name = name
+    newdd.Title.Text = name
+    newdd.Description.Text = desc
+    
+    -- Seçili öğeleri saklamak için tablo
+    local selectedItems = {}
+    
+    -- Dropdown bar metni için orijinal metni sakla
+    local originalText = "Select multiple"
+    newdd.DropdownBar.Open.Text = originalText
+    
+    for i, list in ipairs(listTable) do
+        local newddbtn = reserved.DropdownButton:Clone()
+        newddbtn.Visible = true
+        newddbtn.Parent = newdd.Box.ScrollingFrame
 
-	return self
+        newddbtn.Name = list
+        newddbtn.name.Text = list
+        
+        -- Seçim durumunu göstermek için bir işaret ekleyelim
+        local checkMark = Instance.new("TextLabel")
+        checkMark.Name = "CheckMark"
+        checkMark.Text = "✓"
+        checkMark.Size = UDim2.new(0, 10, 0, 10)
+        checkMark.Position = UDim2.new(1, -25, 0.5, -5)
+        checkMark.AnchorPoint = Vector2.new(1, 0.5)
+        checkMark.TextColor3 = Color3.fromRGB(0, 255, 0)
+        checkMark.BackgroundTransparency = 1
+        checkMark.TextSize = 14
+        checkMark.Visible = false
+        checkMark.Parent = newddbtn
+        
+        newddbtn.MouseButton1Click:Connect(function()
+            -- Öğenin seçili olup olmadığını kontrol et
+            if selectedItems[list] then
+                -- Seçimi kaldır
+                selectedItems[list] = nil
+                checkMark.Visible = false
+            else
+                -- Seç
+                selectedItems[list] = true
+                checkMark.Visible = true
+            end
+            
+            -- Dropdown bar metnini güncelle
+            local selectedCount = 0
+            for _ in pairs(selectedItems) do
+                selectedCount = selectedCount + 1
+            end
+            
+            if selectedCount > 0 then
+                newdd.DropdownBar.Open.Text = selectedCount .. " selected"
+            else
+                newdd.DropdownBar.Open.Text = originalText
+            end
+            
+            -- Geri çağırma fonksiyonunu seçili öğelerle çağır
+            local selectedList = {}
+            for item in pairs(selectedItems) do
+                table.insert(selectedList, item)
+            end
+            func(selectedList)
+        end)
+    end        
+    
+    newdd.DropdownBar.Trigger.MouseButton1Click:Connect(function()
+        if newdd.Box.Visible == false then
+            newdd.Box.Visible = true
+            local twPos = twServ:Create(newdd.Box, TweenInfo.new(0.15), {Size = UDim2.new(0.97, 0,1.696, 0)})
+            twPos:Play()
+        elseif newdd.Box.Visible == true then
+            local twPos = twServ:Create(newdd.Box, TweenInfo.new(0.15), {Size = UDim2.new(0.97, 0,0, 0)})
+            twPos:Play()
+            twPos.Completed:Wait()
+            newdd.Box.Visible = false
+        end
+    end)
 end
 
 
 
 
-
-
-
+	return self
+end
 
 return UILIB
 
