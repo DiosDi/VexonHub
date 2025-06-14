@@ -41,6 +41,11 @@ elseif gameId == 3956818381 then
 -- Ninja Lagends
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/NL-VexonHub"))()
 
+elseif gameId == 126884695634066 then
+-- Grow a Garden
+--loadstring(game:HttpGet(""))()
+
+
 else
     local CoreGui = game:GetService("StarterGui")
     CoreGui:SetCore("SendNotification", {
