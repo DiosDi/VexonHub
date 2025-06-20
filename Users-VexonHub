@@ -1,3 +1,4 @@
+--[[
 function SendMessage(url, message)  
     local http = game:GetService("HttpService")  
     local headers = {  
@@ -151,7 +152,7 @@ local embed = {
 }  
   
 SendMessageEMBED(url, embed)
-
+]]
 
 
 
