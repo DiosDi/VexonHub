@@ -43,7 +43,15 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/
 
 elseif gameId == 126884695634066 then
 -- Grow a Garden
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/GAG-VexonHub"))()
+local CoreGui = game:GetService("StarterGui")
+    CoreGui:SetCore("SendNotification", {
+        Title = "VexonHub",
+        Text = "Sorry Down For Now",
+        Icon = "http://www.roblox.com/asset/?id=84519376661277",
+        Duration = 10,
+        Callback = AllowRunServiceBind,
+    })
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/GAG-VexonHub"))()
 
 elseif gameId == 70876832253163 or gameId == 116495829188952 then
 --Dead Rails
