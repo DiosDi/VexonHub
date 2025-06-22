@@ -46,7 +46,7 @@ elseif gameId == 126884695634066 then
 local CoreGui = game:GetService("StarterGui")
     CoreGui:SetCore("SendNotification", {
         Title = "VexonHub",
-        Text = "Sorry Down For Now",
+        Text = "Sorry Grow a Garden Down For Now",
         Icon = "http://www.roblox.com/asset/?id=84519376661277",
         Duration = 10,
         Callback = AllowRunServiceBind,
