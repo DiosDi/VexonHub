@@ -1,4 +1,3 @@
-
 -- Instances: 147 | Scripts: 0 | Modules: 1
 local DRR = {};
 
@@ -1297,8 +1296,8 @@ parent.TopBar.ProfileMenu.PlayerProfile.ImageLabel.Image = game:GetService("Play
 function UILIB:Load(name, img, direction)
 	local self = setmetatable({}, UILIB)
 	task.spawn(function()
-			local tw = twServ:Create(parent.MainBar, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,0.212, 0) })
-			local tw2 = twServ:Create(parent.TopBar, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Position = UDim2.new(0.23, 0,0.012, 0) })
+			local tw = twServ:Create(parent.MainBar, TweenInfo.new(0.4, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,0.212, 0) })
+			local tw2 = twServ:Create(parent.TopBar, TweenInfo.new(0.7, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Position = UDim2.new(0.23, 0,0.012, 0) })
 			tw:Play()
 			tw.Completed:Wait()
 			task.wait(0.3)
@@ -1790,11 +1789,42 @@ end
 		end)
 	end
 	
+
+
 	
+function self.newSeparator(text)
+    -- Mevcut Label bileşenini temel alarak bir separator oluştur
+    local separator = reserved.Label:Clone()
+    separator.Parent = newTab
+    separator.Name = "Separator_" .. (text or "Line")
+    separator.Visible = true
+    
+    -- Başlık metnini ayarla (isteğe bağlı)
+    if text then
+        separator.Title.Text = text
+    else
+        separator.Title.Text = ""
+    end
+    
+    -- Görsel ayarlar
+    separator.Title.TextColor3 = Color3.fromRGB(200, 200, 200)  -- Gri tonu
+    separator.Title.TextXAlignment = Enum.TextXAlignment.Center -- Ortala
+    separator.BackgroundTransparency = 1  -- Arka planı şeffaf yap
+    
+    -- Gradient efekti kaldır (opsiyonel)
+    if separator:FindFirstChild("UIGradient") then
+        separator.UIGradient:Destroy()
+    end
+    
+    return separator
+end
 	
+
+
+
+
 	
-	
-	function self.newMultiDropdown(name, desc, listTable, func)
+function self.newMultiDropdown(name, desc, listTable, func)
     local newdd = reserved.Dropdown:Clone()
     newdd.Visible = true
     newdd.Parent = newTab
@@ -1890,4 +1920,3 @@ end;
 };
 
 return require(DRR["93"]);
-
