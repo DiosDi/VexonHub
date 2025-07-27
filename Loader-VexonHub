@@ -1,6 +1,6 @@
 --// Made By TheVex0n \\--
 --\\ Thanks For Using //--
-wait(2)
+--[[wait(2)
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local Lighting = game:GetService("Lighting")
@@ -74,7 +74,7 @@ end
 
 wait(2)
 
-tweenOutAndDestroy()
+tweenOutAndDestroy()]]
 
 
 local CoreGui = game:GetService("StarterGui")
@@ -115,6 +115,10 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/
 elseif gameId == 3956818381 then
 -- Ninja Lagends
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/NL-VexonHub"))()
+
+elseif gameId == 99567941238278 then
+-- Ink Game
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/IG-VexonHub"))()
 
 
 elseif gameId == 126884695634066 then
