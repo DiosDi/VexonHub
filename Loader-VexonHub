@@ -125,6 +125,13 @@ elseif gameId == 126884695634066 then
 -- Grow a Garden
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/GAG-VexonHub"))()
 
+
+elseif gameId == 4924922222 then
+-- Brook Haven
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/GAG-VexonHub"))()
+
+
+
 elseif gameId == 109983668079237 or gameId == 96342491571673 then
 -- Steal a Brainrot
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/SABR-VexonHub"))()
