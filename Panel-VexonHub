@@ -1,7 +1,7 @@
---print("hello sir can you join to discord server")
+print("hello sir can you join to discord server")
 
 
-local CoreGui = game:GetService("StarterGui")
+--[[local CoreGui = game:GetService("StarterGui")
 local setclipboard = setclipboard or toclipboard
 
 CoreGui:SetCore("SendNotification", {
@@ -25,3 +25,4 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
         })
     end
 end)
+]]
