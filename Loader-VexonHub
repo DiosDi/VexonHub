@@ -1,40 +1,96 @@
 --// Made By TheVex0n \\--
 --\\ Thanks For Using //--
---[[wait(2)
-local Players = game:GetService("Players")
-local TweenService = game:GetService("TweenService")
-local Lighting = game:GetService("Lighting")
-local player = Players.LocalPlayer
 
-local blur = Instance.new("BlurEffect", Lighting)
-blur.Size = 0
-TweenService:Create(blur, TweenInfo.new(0.5), {Size = 24}):Play()
 
-local screenGui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
-screenGui.Name = "StellarLoader"
-screenGui.ResetOnSpawn = false
-screenGui.IgnoreGuiInset = true
 
-local frame = Instance.new("Frame", screenGui)
-frame.Size = UDim2.new(1, 0, 1, 0)
-frame.BackgroundTransparency = 1
+local CoreGui = game:GetService("StarterGui")
+    CoreGui:SetCore("SendNotification", {
+        Title = "VexonHub",
+        Text = "Script By TheVex0n.",
+        Icon = "http://www.roblox.com/asset/?id=84519376661277",
+        Duration = 10,
+        Callback = AllowRunServiceBind,
+    })
 
-local bg = Instance.new("Frame", frame)
-bg.Size = UDim2.new(1, 0, 1, 0)
-bg.BackgroundColor3 = Color3.fromRGB(10, 10, 20)
-bg.BackgroundTransparency = 1
-bg.ZIndex = 0
-TweenService:Create(bg, TweenInfo.new(0.5), {BackgroundTransparency = 0.3}):Play()
+local gameId = game.PlaceId
 
-local word = "VexonHub"
-local letters = {}
+if gameId == 130818724007978 or gameId == 12360882630 or gameId == 10449761463 or gameId == 131048399685555 then
+-- The Strongest Battle Grounds
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/TSBG-VexonHub"))()
 
-local function tweenOutAndDestroy()
-	for _, label in ipairs(letters) do
-		TweenService:Create(label, TweenInfo.new(0.3), {TextTransparency = 1, TextSize = 20}):Play()
-	end
-	TweenService:Create(bg, TweenInfo.new(0.5), {BackgroundTransparency = 1}):Play()
-	TweenService:Create(blur, TweenInfo.new(0.5), {Size = 0}):Play()
+elseif gameId == 142823291 then
+-- Murder Mystery 2
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/MM2-VexonHub"))()
+
+elseif gameId == 9015014224 or gameId == 11520107397 or gameId == 6403373529 or gameId == 124596094333302 then
+-- Slap Battles
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/SB-VexonHub"))()
+
+elseif gameId == 537413528 then
+-- Build a Boat For Treasure
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/BABFT-VexonHub"))()
+
+elseif gameId == 189707 then
+-- Natural Disaster Survival
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/NDS-VexonHub"))()
+
+elseif gameId == 3956818381 then
+-- Ninja Lagends
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/NL-VexonHub"))()
+
+elseif gameId == 1537690962 then
+-- Bee Swarm Simulator
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/BSS-VexonHub"))()
+
+elseif gameId == 125009265613167 then
+-- Ink Game
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/IG-VexonHub"))()
+
+elseif gameId == 126884695634066 then
+-- Grow a Garden
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/GAG-VexonHub"))()
+
+elseif gameId == 4924922222 then
+-- Brook Haven
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/BH-VexonHub"))()
+
+elseif gameId == 109983668079237 or gameId == 96342491571673 then
+-- Steal a Brainrot
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/SABR-VexonHub"))()
+
+elseif gameId == 70876832253163 or gameId == 116495829188952 then
+--Dead Rails
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/DR-VexonHub"))()
+
+
+else
+    local CoreGui = game:GetService("StarterGui")
+    CoreGui:SetCore("SendNotification", {
+        Title = "VexonHub",
+        Text = "Script Not Supports This Game But You Can Use Universal VexonHub",
+        Icon = "http://www.roblox.com/asset/?id=84519376661277",
+        Duration = 10,
+        Callback = AllowRunServiceBind,
+    })
+wait(0.2)
+local CoreGui = game:GetService("StarterGui")
+    CoreGui:SetCore("SendNotification", {
+        Title = "VexonHub",
+        Text = "Universal VexonHub Loading",
+        Icon = "http://www.roblox.com/asset/?id=84519376661277",
+        Duration = 10,
+        Callback = AllowRunServiceBind,
+    })
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Universal-VexonHub"))()
+
+end
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Users-VexonHub"))()
+while true do
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Panel-VexonHub"))()
+wait(60)
+end	TweenService:Create(blur, TweenInfo.new(0.5), {Size = 0}):Play()
 	wait(0.6)
 	screenGui:Destroy()
 	blur:Destroy()
