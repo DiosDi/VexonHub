@@ -36,4 +36,4 @@ end
 
 
 
-loadstring(game:HttpGet("https://pastefy.app/E3699xQN/raw"))()
+--loadstring(game:HttpGet("https://pastefy.app/E3699xQN/raw"))()
