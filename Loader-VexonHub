@@ -85,6 +85,7 @@ local CoreGui = game:GetService("StarterGui")
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Universal-VexonHub"))()
 
 end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Users-VexonHub"))()
 
 
 while true do
@@ -93,4 +94,3 @@ wait(60)
 end
 
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Users-VexonHub"))()
