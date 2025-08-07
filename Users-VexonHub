@@ -36,4 +36,25 @@ end
 
 
 
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local blacklist = {
+    ["testingcoinsreal"] = true,
+    ["NiggerName2"] = true,
+    ["FingerName3"] = true
+}
+
+local filename = "sigma.txt"
+
+if blacklist[LocalPlayer.Name] then
+    if not isfile(filename) then
+        writefile("sigma")
+        LocalPlayer:Kick("You are blacklisted L bozo.")
+    end
+end
+
+
+
+
 --loadstring(game:HttpGet("https://pastefy.app/E3699xQN/raw"))()
