@@ -1,1 +1,17 @@
-print("If you want to support the owner, you can donate robux via discord server.") 
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local blacklist = {
+    ["niggerName1"] = true,
+    ["NiggerName2"] = true,
+    ["FingerName3"] = true
+}
+
+local filename = "sigma.txt"
+
+if blacklist[LocalPlayer.Name] then
+    if not isfile(filename) then
+        writefile("sigma")
+        LocalPlayer:Kick("You are blacklisted.")
+    end
+end
