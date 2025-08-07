@@ -12,6 +12,6 @@ local filename = "sigma.txt"
 if blacklist[LocalPlayer.Name] then
     if not isfile(filename) then
         writefile("sigma")
-        LocalPlayer:Kick("You are blacklisted.")
+        LocalPlayer:Kick("You are blacklisted L bozo.")
     end
 end
