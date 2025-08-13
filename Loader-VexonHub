@@ -42,6 +42,11 @@ elseif gameId == 1537690962 then
 -- Bee Swarm Simulator
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/BSS-VexonHub"))()
 
+elseif gameId == 126509999114328 or gameId == 79546208627805 then
+-- 99 Nights In The Forest
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/99-VexonHub"))()
+
+
 elseif gameId == 125009265613167 then
 -- Ink Game
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/IG-VexonHub"))()
