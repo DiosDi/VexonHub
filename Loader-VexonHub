@@ -38,7 +38,7 @@ elseif gameId == 3956818381 then
 -- Ninja Lagends
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/NL-VexonHub"))()
 
-elseif gameId == 6516141723 or gameId == 6839171747 or gameId == 0 then
+elseif gameId == 6516141723 or gameId == 6839171747 then
 -- Doors
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Doors-VexonHub"))()
 
