@@ -3,8 +3,6 @@
 
 
 
-
--- Script'in çalıştığını belirten başlangıç bildirimi
 local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
     Title = "VexonHub",
@@ -13,14 +11,11 @@ CoreGui:SetCore("SendNotification", {
     Duration = 5,
 })
 
--- Önce 'Doors' için özel kontrol yapıyoruz. Çünkü Place ID'si değişkenlik gösterebilir.
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local entityModulesPath = "ModulesClient.EntityModules"
 local gameDataPath = "GameData"
 
 if ReplicatedStorage:FindFirstChild(entityModulesPath) and ReplicatedStorage:FindFirstChild(gameDataPath) then
-    -- Oyunun 'Doors' olduğu doğrulandı.
-    print("VexonHub: 'Doors' detected. Loading script...")
     CoreGui:SetCore("SendNotification", {Title = "VexonHub", Text = "Doors detected! Loading script...", Icon = "http://www.roblox.com/asset/?id=84519376661277", Duration = 5})
     
     -- BURAYA DOORS SCRIPT'İNİZİN URL'SİNİ YAZIN
