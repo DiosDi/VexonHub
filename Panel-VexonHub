@@ -1,20 +1,14 @@
 print("join to discord frfr")
 
---[[local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
+--[[
+local FLAG = "MyOnceFlag_YourUniqueName"     -- Aynı adı her dosyada kullanma; kendine özgü bir isim ver
+local ENV  = (getgenv and getgenv()) or _G   -- Executor varsa getgenv, yoksa _G
 
-local blacklist = {
-    ["testingcoinsreal"] = true,
-    ["NiggerName2"] = true,
-    ["FingerName3"] = true
-}
-
-local filename = "sigma.txt"
-
-if blacklist[LocalPlayer.Name] then
-    if not isfile(filename) then
-        writefile("sigma")
-        LocalPlayer:Kick("You are blacklisted L bozo.")
-    end
+if ENV[FLAG] then
+    return
 end
+ENV[FLAG] = true
+
+
+
 ]]
