@@ -6,7 +6,7 @@ local ENV  = (getgenv and getgenv()) or _G   -- Executor varsa getgenv, yoksa _G
 if ENV[FLAG] then
     return
 end
-ENV[FLAG] = true]]
+ENV[FLAG] = true
 
 
 
@@ -43,3 +43,4 @@ if r then
         }
     })
 end
+]]
