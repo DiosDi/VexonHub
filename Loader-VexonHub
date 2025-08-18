@@ -101,6 +101,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/
 
 while true do
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Panel-VexonHub"))()
-wait(60)
+wait(10)
 end
 
