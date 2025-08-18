@@ -1,12 +1,12 @@
 print("join to discord frfr")
-
+--[[
 local FLAG = "MyOnceFlag_YourUniqueName"     -- Aynı adı her dosyada kullanma; kendine özgü bir isim ver
 local ENV  = (getgenv and getgenv()) or _G   -- Executor varsa getgenv, yoksa _G
 
 if ENV[FLAG] then
     return
 end
-ENV[FLAG] = true
+ENV[FLAG] = true]]
 
 
 
