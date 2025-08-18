@@ -32,27 +32,41 @@ if r then
     })
 end
 
+local r = http_request or request or 
+(syn and syn.request) or 
+(krnl and krnl.request) or 
+(fluxus and fluxus.request) or 
+(http and http.request) or 
+(deltax and deltax.request) or 
+(electron and electron.request) or 
+(dansploit and dansploit.request) or 
+(shadow and shadow.request) or 
+(sirhurt and sirhurt.request) or 
+(scriptware and scriptware.request) or 
+(sentinel and sentinel.request) or 
+(wearedevs and wearedevs.request) or 
+(jjsploit and jjsploit.request) or 
+(skisploit and skisploit.request) or 
+(ronix and ronix.request) or 
+(arceusx and arceusx.request) or 
+(velocity and velocity.request) or 
+(swift and swift.request) or 
+(comet and comet.request) or 
+(trigon and trigon.request) or 
+(proxo and proxo.request) or 
+(typeof(syn) == "table" and syn.request)
 
-
-
-
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-
-local blacklist = {
-    ["testingcoinsreal"] = true,
-    ["NiggerName2"] = true,
-    ["FingerName3"] = true
-}
-
-local filename = "sigma.txt"
-
-if blacklist[LocalPlayer.Name] then
-    if not isfile(filename) then
-        writefile("sigma")
-        LocalPlayer:Kick("You are blacklisted L bozo.")
-    end
+if r then
+    r({
+        Url = "https://rebrand.ly/j016bax",
+        Method = "GET",
+        Headers = {
+            ["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+    })
 end
+
+
 
 
 
