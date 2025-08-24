@@ -1,0 +1,6 @@
+local MoonSec_StringsHiddenAttr = true
+if _wGusDclLDKFA == "This file was protected with MoonSec V3" then
+    task.wait()
+    if not game then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Dr.Ray-VexonHub"))()
+    end
