@@ -5,7 +5,7 @@ while  true do
 wait(60)
 game.StarterGui:SetCore("SendNotification", {
             Title = "VexonHub",
-            Text = "Hi sir. can you join VexonHub Pls?",
+            Text = "Hi sir. can you join To Discord Server Pls?",
             Icon = "http://www.roblox.com/asset/?id=84519376661277",
             Duration = 3
         })
