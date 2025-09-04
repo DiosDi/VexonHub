@@ -1,3 +1,10 @@
+local FLAG = "MyOnceFlag_YourUniqueName"
+local ENV  = (getgenv and getgenv()) or _G
+if ENV[FLAG] then
+    return
+end
+ENV[FLAG] = true
+
 loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/433811c59d4b52d9"))()
 
 
