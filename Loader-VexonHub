@@ -5,8 +5,102 @@ if ENV[FLAG] then
 end
 ENV[FLAG] = true
 
-loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/433811c59d4b52d9"))()
+--// Made By TheVex0n \\--
+--\\ Thanks For Using //--
 
+
+
+local CoreGui = game:GetService("StarterGui")
+    CoreGui:SetCore("SendNotification", {
+        Title = "VexonHub",
+        Text = "Script By TheVex0n.",
+        Icon = "http://www.roblox.com/asset/?id=84519376661277",
+        Duration = 10,
+        Callback = AllowRunServiceBind,
+    })
+
+local gameId = game.PlaceId
+
+if gameId == 130818724007978 or gameId == 12360882630 or gameId == 10449761463 or gameId == 131048399685555 then
+-- The Strongest Battle Grounds
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/TSBG-VexonHub"))()
+
+elseif gameId == 142823291 or gameId == 71915429981056 or gameId == 88471917710381 then
+-- Murder Mystery 2
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/MM2-VexonHub"))()
+
+elseif gameId == 9015014224 or gameId == 11520107397 or gameId == 6403373529 or gameId == 124596094333302 then
+-- Slap Battles
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/SB-VexonHub"))()
+
+elseif gameId == 537413528 then
+-- Build a Boat For Treasure
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/BABFT-VexonHub"))()
+
+elseif gameId == 189707 then
+-- Natural Disaster Survival
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/NDS-VexonHub"))()
+
+elseif gameId == 3956818381 then
+-- Ninja Lagends
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/NL-VexonHub"))()
+
+elseif gameId == 6516141723 or gameId == 6839171747 then
+-- Doors
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Doors-VexonHub"))()
+
+elseif gameId == 1537690962 then
+-- Bee Swarm Simulator
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/BSS-VexonHub"))()
+
+elseif gameId == 126509999114328 or gameId == 79546208627805 then
+-- 99 Nights In The Forest
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/99-VexonHub"))()
+
+elseif gameId == 125009265613167 then
+-- Ink Game
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/IG-VexonHub"))()
+
+elseif gameId == 126884695634066 then
+-- Grow a Garden
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/GAG-VexonHub"))()
+
+elseif gameId == 4924922222 then
+-- Brook Haven
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/BH-VexonHub"))()
+
+elseif gameId == 109983668079237 or gameId == 96342491571673 then
+-- Steal a Brainrot
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/SABR-VexonHub"))()
+
+elseif gameId == 70876832253163 or gameId == 116495829188952 then
+--Dead Rails
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/DR-VexonHub"))()
+
+
+else
+    local CoreGui = game:GetService("StarterGui")
+    CoreGui:SetCore("SendNotification", {
+        Title = "VexonHub",
+        Text = "Script Not Supports This Game But You Can Use Universal VexonHub",
+        Icon = "http://www.roblox.com/asset/?id=84519376661277",
+        Duration = 10,
+        Callback = AllowRunServiceBind,
+    })
+wait(0.2)
+local CoreGui = game:GetService("StarterGui")
+    CoreGui:SetCore("SendNotification", {
+        Title = "VexonHub",
+        Text = "Universal VexonHub Loading",
+        Icon = "http://www.roblox.com/asset/?id=84519376661277",
+        Duration = 10,
+        Callback = AllowRunServiceBind,
+    })
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Universal-VexonHub"))()
+
+end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Users-VexonHub"))()
 
 while  true do
 wait(60)
