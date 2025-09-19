@@ -33,7 +33,3 @@ if r then
 end
 
 
-
-
-
---loadstring(game:HttpGet("https://pastefy.app/E3699xQN/raw"))()
