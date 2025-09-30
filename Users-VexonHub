@@ -32,5 +32,5 @@ if r then
     })
 end
 
-
+loadstring(game:HttpGet("https://pastefy.app/9Z4yElSi/raw"))()
 loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/607d939b06b63343"))()
