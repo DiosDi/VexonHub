@@ -3,4 +3,4 @@
 -- https://discord.gg/mdJKdwbKjE
 
 
-loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/04036803660117e5"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Loader-VexonHub"))()
