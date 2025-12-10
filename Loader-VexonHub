@@ -34,6 +34,10 @@ elseif gameId == 189707 then
 -- Natural Disaster Survival
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/NDS-VexonHub"))()
 
+elseif gameId == 76558904092080 then
+-- Forge
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Forge-VexonHub"))()
+
 elseif gameId == 3956818381 then
 -- Ninja Lagends
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/NL-VexonHub"))()
