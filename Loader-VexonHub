@@ -34,7 +34,7 @@ elseif gameId == 189707 then
 -- Natural Disaster Survival
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/NDS-VexonHub"))()
 
-elseif gameId == 76558904092080 then
+elseif gameId == 76558904092080 or gameId == 7671049560 then
 -- Forge
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Forge-VexonHub"))()
 
