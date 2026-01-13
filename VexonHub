@@ -2,4 +2,4 @@
 --\\ Thanks For Using //
 -- https://discord.gg/mdJKdwbKjE
 
-loadstring(game:HttpGet("https://api.jnkie.com/api/v1/luascripts/public/2bf90bf9cb4860ee83e194e86a810703acc1c0e6bc6e59549de8b0cda88ea0d7/download"))()
+loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/e5c61fa9702addb3"))()
