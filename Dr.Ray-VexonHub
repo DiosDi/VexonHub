@@ -1438,7 +1438,7 @@ end
 
 
 local Sound = Instance.new("Sound")
-Sound.SoundId = "rbxassetid://12221967" -- Buraya kendi ses ID'ni yaz
+Sound.SoundId = "rbxassetid://12221967" 
 Sound.Volume = 1
 Sound.Parent = workspace
 
@@ -1608,7 +1608,6 @@ function UILIB.newTab(name, img)
 				end
 			end)
 
-			-- Connect the InputBegan event
 			a = game:GetService("UserInputService").InputBegan:Connect(function(input, processed)
 				if input.UserInputType == Enum.UserInputType.Keyboard then
 					newKey.Bind.Button.Text = input.KeyCode.Name
@@ -1628,7 +1627,7 @@ function UILIB.newTab(name, img)
 	end
 
 
-function self.newSlider(name, desc, min, max, defaultValue, manageSlider, func)
+function self.slider(name, desc, min, max, defaultValue, manageSlider, func)
 	local newSlider = reserved.Slider:Clone()
 
 	newSlider.MouseEnter:Connect(function()
@@ -1657,7 +1656,6 @@ function self.newSlider(name, desc, min, max, defaultValue, manageSlider, func)
 	local MouseDown = false
 	local delayTw = 0.3
 
-	-- Fill başlangıç değerini ayarla
 	local function SetFillFromValue(val)
 		local percent = (val - min) / (max - min)
 		Fill.Size = UDim2.fromScale(percent, 1)
@@ -1793,25 +1791,21 @@ end
 
 	
 function self.newSeparator(text)
-    -- Mevcut Label bileşenini temel alarak bir separator oluştur
     local separator = reserved.Label:Clone()
     separator.Parent = newTab
     separator.Name = "Separator_" .. (text or "Line")
     separator.Visible = true
     
-    -- Başlık metnini ayarla (isteğe bağlı)
     if text then
         separator.Title.Text = text
     else
         separator.Title.Text = ""
     end
     
-    -- Görsel ayarlar
-    separator.Title.TextColor3 = Color3.fromRGB(200, 200, 200)  -- Gri tonu
-    separator.Title.TextXAlignment = Enum.TextXAlignment.Center -- Ortala
-    separator.BackgroundTransparency = 1  -- Arka planı şeffaf yap
+    separator.Title.TextColor3 = Color3.fromRGB(200, 200, 200)
+    separator.Title.TextXAlignment = Enum.TextXAlignment.Center
+    separator.BackgroundTransparency = 1 
     
-    -- Gradient efekti kaldır (opsiyonel)
     if separator:FindFirstChild("UIGradient") then
         separator.UIGradient:Destroy()
     end
@@ -1833,10 +1827,8 @@ function self.newMultiDropdown(name, desc, listTable, func)
     newdd.Title.Text = name
     newdd.Description.Text = desc
     
-    -- Seçili öğeleri saklamak için tablo
     local selectedItems = {}
     
-    -- Dropdown bar metni için orijinal metni sakla
     local originalText = "Select multiple"
     newdd.DropdownBar.Open.Text = originalText
     
@@ -1848,7 +1840,6 @@ function self.newMultiDropdown(name, desc, listTable, func)
         newddbtn.Name = list
         newddbtn.name.Text = list
         
-        -- Seçim durumunu göstermek için bir işaret ekleyelim
         local checkMark = Instance.new("TextLabel")
         checkMark.Name = "CheckMark"
         checkMark.Text = "✓"
@@ -1862,18 +1853,14 @@ function self.newMultiDropdown(name, desc, listTable, func)
         checkMark.Parent = newddbtn
         
         newddbtn.MouseButton1Click:Connect(function()
-            -- Öğenin seçili olup olmadığını kontrol et
             if selectedItems[list] then
-                -- Seçimi kaldır
                 selectedItems[list] = nil
                 checkMark.Visible = false
             else
-                -- Seç
                 selectedItems[list] = true
                 checkMark.Visible = true
             end
             
-            -- Dropdown bar metnini güncelle
             local selectedCount = 0
             for _ in pairs(selectedItems) do
                 selectedCount = selectedCount + 1
@@ -1885,7 +1872,6 @@ function self.newMultiDropdown(name, desc, listTable, func)
                 newdd.DropdownBar.Open.Text = originalText
             end
             
-            -- Geri çağırma fonksiyonunu seçili öğelerle çağır
             local selectedList = {}
             for item in pairs(selectedItems) do
                 table.insert(selectedList, item)
