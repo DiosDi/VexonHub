@@ -1,5 +1,11 @@
 loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/a2c9109b15ab0fb3c443eb5c4cfc9e06.lua"))()
 
+
+local GroupService = game:GetService("GroupService")
+task.wait(5) 
+GroupService:PromptJoinAsync(32859350)
+
+
 --[[
 local StarterGui = game:GetService("StarterGui")
 local bindable = Instance.new("BindableFunction")
