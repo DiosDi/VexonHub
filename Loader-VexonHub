@@ -1,32 +1,5 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/Script-hub/refs/heads/main/Loader"))()
---loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/a2c9109b15ab0fb3c443eb5c4cfc9e06.lua"))()
 
-
---local GroupService = game:GetService("GroupService")
---task.wait(5) 
---GroupService:PromptJoinAsync(32859350)
-
-
---[[
-local StarterGui = game:GetService("StarterGui")
-local bindable = Instance.new("BindableFunction")
-
-bindable.OnInvoke = function(buttonText)
-    if buttonText == "Copy Link" then
-        if setclipboard then
-            setclipboard("https://discord.gg/vexon")
-        else
-        end
-    end
-end
-
-StarterGui:SetCore("SendNotification", {
-    Title = "VexonHub",
-    Text = "VexonHub Server is back! Do you wanna join it?",
-    Icon = "rbxassetid://84519376661277",
-    Duration = 120,
-    Button1 = "Copy Link",
-    Button2 = "Not Now",
-    Callback = bindable
-})
-]]
+local G = game:GetService("GroupService")
+task.wait(5) 
+G:PromptJoinAsync(32859350)
