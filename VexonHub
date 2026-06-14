@@ -493,5 +493,5 @@
 
 
 
-
-loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/3b486017f126da291ff5fcb3e1a05867.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/Loader-VexonHub"))()
+--loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/3b486017f126da291ff5fcb3e1a05867.lua"))()
