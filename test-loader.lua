@@ -1,11 +1,7 @@
 
 --[[
 
-You can upload this file on your github, pastebin, anywhere you want and generate a loadstring.
-    
-Add 'lp_key' variable if your user has a key on top of this loader.
 
-You can remove this message block as you like.
 
 
  _                ____            _   
