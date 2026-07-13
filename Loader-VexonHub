@@ -1,4 +1,12 @@
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/Script-hub/refs/heads/main/Loader"))()
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "VexonHub",
+    Text = "This version is heavy and laggy. V2 is coming soon! Stay tuned on our Discord server.",
+    Icon = "http://www.roblox.com/asset/?id=84519376661277",
+    Duration = 5
+})
 
 local G = game:GetService("GroupService")
 task.wait(5) 
