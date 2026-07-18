@@ -15857,21 +15857,34 @@ SelectedLabel,
 }),
 ChevronContainer,
 })
-local ListFrame=ab.NewRoundFrame(14,"Squircle",{
-ThemeTag={ImageColor3="Accent"},ImageTransparency=.55,
+local MaxListHeight=220
+local ListScroll=ac("ScrollingFrame",{
 Size=UDim2.new(1,0,0,0),
-AutomaticSize="Y",
+CanvasSize=UDim2.new(0,0,0,0),
+AutomaticCanvasSize="Y",
+ScrollingDirection="Y",
+ScrollBarThickness=3,
+ScrollBarImageTransparency=0.6,
+ElasticBehavior="Never",
+BackgroundTransparency=1,
+BorderSizePixel=0,
 },{
 ac("UIPadding",{
 PaddingTop=UDim.new(0,6),
 PaddingLeft=UDim.new(0,6),
-PaddingRight=UDim.new(0,6),
+PaddingRight=UDim.new(0,9),
 PaddingBottom=UDim.new(0,6),
 }),
 ac("UIListLayout",{
 FillDirection="Vertical",
 Padding=UDim.new(0,4),
 }),
+})
+local ListFrame=ab.NewRoundFrame(14,"Squircle",{
+ThemeTag={ImageColor3="Accent"},ImageTransparency=.55,
+Size=UDim2.new(1,0,0,0),
+},{
+ListScroll,
 })
 local ListContainer=ac("Frame",{
 Size=UDim2.new(1,0,0,0),
@@ -15888,8 +15901,12 @@ end
 local function SetListOpen(open)
 Opened=open
 if Opened then
+local contentH=ListScroll.UIListLayout.AbsoluteContentSize.Y+12
+local cappedH=math.min(contentH,MaxListHeight)
+ListScroll.Size=UDim2.new(1,0,0,cappedH)
+ListFrame.Size=UDim2.new(1,0,0,cappedH)
 ad(ChevronContainer,.25,{Rotation=180},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
-ad(ListContainer,.25,{Size=UDim2.new(1,0,0,ListFrame.AbsoluteSize.Y+8)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+ad(ListContainer,.25,{Size=UDim2.new(1,0,0,cappedH+8)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
 else
 ad(ChevronContainer,.2,{Rotation=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
 ad(ListContainer,.2,{Size=UDim2.new(1,0,0,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
@@ -15900,7 +15917,7 @@ local Highlight=ab.NewRoundFrame(10,"Squircle",{
 Size=UDim2.new(1,0,0,38),
 ThemeTag={ImageColor3="Text"},
 ImageTransparency=1,
-Parent=ListFrame,
+Parent=ListScroll,
 },{
 ac("TextLabel",{
 Text=lang.Name,
