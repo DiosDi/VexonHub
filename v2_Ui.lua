@@ -15838,7 +15838,7 @@ AutoButtonColor=false,
 BackgroundTransparency=1,
 },{
 ab.NewRoundFrame(14,"Squircle",{
-ThemeTag={ImageColor3="DropdownBackground"},
+ThemeTag={ImageColor3="Accent"},ImageTransparency=.55,
 Size=UDim2.new(1,0,1,0),
 Name="Background",
 }),
@@ -15858,7 +15858,7 @@ SelectedLabel,
 ChevronContainer,
 })
 local ListFrame=ab.NewRoundFrame(14,"Squircle",{
-ThemeTag={ImageColor3="DropdownBackground"},
+ThemeTag={ImageColor3="Accent"},ImageTransparency=.55,
 Size=UDim2.new(1,0,0,0),
 AutomaticSize="Y",
 },{
