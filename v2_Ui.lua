@@ -15885,6 +15885,16 @@ local function SelectLang(lang)
 Selected=lang
 SelectedLabel.Text=lang.Name
 end
+local function SetListOpen(open)
+Opened=open
+if Opened then
+ad(ChevronContainer,.25,{Rotation=180},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+ad(ListContainer,.25,{Size=UDim2.new(1,0,0,ListFrame.AbsoluteSize.Y+8)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+else
+ad(ChevronContainer,.2,{Rotation=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+ad(ListContainer,.2,{Size=UDim2.new(1,0,0,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end
+end
 for _,lang in next,Languages do
 local Highlight=ab.NewRoundFrame(10,"Squircle",{
 Size=UDim2.new(1,0,0,38),
@@ -15892,7 +15902,7 @@ ThemeTag={ImageColor3="Text"},
 ImageTransparency=1,
 Parent=ListFrame,
 },{
-ac("TextButton",{
+ac("TextLabel",{
 Text=lang.Name,
 TextXAlignment="Left",
 FontFace=Font.new(ab.Font,Enum.FontWeight.Medium),
@@ -15900,7 +15910,6 @@ ThemeTag={TextColor3="Text"},
 TextSize=15,
 BackgroundTransparency=1,
 Size=UDim2.new(1,0,1,0),
-AutoButtonColor=false,
 },{
 ac("UIPadding",{PaddingLeft=UDim.new(0,10),PaddingRight=UDim.new(0,10)}),
 }),
@@ -15913,18 +15922,12 @@ ad(Highlight,.08,{ImageTransparency=1}):Play()
 end)
 ab.AddSignal(Highlight.MouseButton1Click,function()
 SelectLang(lang)
+SetListOpen(false)
 if aj.OnSelect then aj.OnSelect(lang.Code)end
 end)
 end
 ab.AddSignal(SelectorButton.MouseButton1Click,function()
-Opened=not Opened
-if Opened then
-ad(ChevronContainer,.25,{Rotation=180},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
-ad(ListContainer,.25,{Size=UDim2.new(1,0,0,ListFrame.AbsoluteSize.Y+8)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
-else
-ad(ChevronContainer,.2,{Rotation=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
-ad(ListContainer,.2,{Size=UDim2.new(1,0,0,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
-end
+SetListOpen(not Opened)
 end)
 local ButtonsContainer=ac("Frame",{
 Size=UDim2.new(1,0,0,42),
