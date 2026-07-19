@@ -6314,9 +6314,9 @@ ak.Value.Default=FormatValue(az)
 ap=az
 ad.SafeCallback(ak.Callback,FormatValue(az))
 end
-am=ab.InputChanged:Connect(function(g)
-if g.UserInputType~=Enum.UserInputType.MouseMovement and g.UserInputType~=Enum.UserInputType.Touch then return end
-local h=math.clamp((g.Position.X-ak.UIElements.SliderIcon.AbsolutePosition.X)/ak.UIElements.SliderIcon.AbsoluteSize.X,0,1)
+am=ac.RenderStepped:Connect(function()
+local g=al and aA.Position.X or ab:GetMouseLocation().X
+local h=math.clamp((g-ak.UIElements.SliderIcon.AbsolutePosition.X)/ak.UIElements.SliderIcon.AbsoluteSize.X,0,1)
 local j,l=GetMinMax()
 az=CalculateValue(j+h*(l-j))
 az=math.clamp(az,j,l)
@@ -14722,7 +14722,9 @@ end
 function av.Open(C)
 task.spawn(function()
 if av.OnOpenCallback then
+task.spawn(function()
 ai.SafeCallback(av.OnOpenCallback)
+end)
 end
 task.wait(.06)
 av.Closed=false
@@ -14741,7 +14743,9 @@ if l then
 if l:IsA"VideoFrame"then
 l.Visible=true
 local F=TweenVideoTransparency(l,0.2,0,Enum.EasingStyle.Quint,Enum.EasingDirection.Out)
-if F then F:Play()end
+if F then
+F:Play()
+end
 else
 al(l,0.2,{
 ImageTransparency=av.BackgroundImageTransparency,
@@ -14755,12 +14759,8 @@ al(b,0.25,{ImageTransparency=av.ShadowTransparency},Enum.EasingStyle.Quint,Enum.
 if h then
 al(h,0.25,{Transparency=.8},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
 end
-av.CanDropdown=true
-av.UIElements.Main.Visible=true
-task.wait(.05)
-av.UIElements.Main:WaitForChild"Main".Visible=true
-au.WindUI:ToggleAcrylic(true)
-task.wait(.25)
+task.spawn(function()
+task.wait(.3)
 if av.BottomDragBarEnabled then
 r.Visible=true
 al(r,.45,{Size=UDim2.new(0,200,0,4),ImageTransparency=.8},Enum.EasingStyle.Exponential,Enum.EasingDirection.Out):Play()
@@ -14773,6 +14773,14 @@ al(az,.45,{ImageTransparency=.8},Enum.EasingStyle.Exponential,Enum.EasingDirecti
 end
 av.CanResize=true
 end
+end)
+av.CanDropdown=true
+av.UIElements.Main.Visible=true
+task.spawn(function()
+task.wait(.05)
+av.UIElements.Main:WaitForChild"Main".Visible=true
+au.WindUI:ToggleAcrylic(true)
+end)
 end)
 end
 function av.Close(C)
@@ -16204,153 +16212,6 @@ aa.Themes=a.u()(aa)
 an.Themes=aa.Themes
 aa:SetTheme"Dark"
 aa:SetLanguage(an.Language)
-
--- Debounce UpdateTheme so rapid calls (e.g. during window build) only flush once per frame
-do
-	local _origUpdateTheme=an.UpdateTheme
-	local _pending=false
-	local _pendingObj=nil
-	an.UpdateTheme=function(self,obj,anim,...)
-		-- if targeting a specific object, apply immediately (cheap single-object path)
-		if obj then
-			return _origUpdateTheme(self,obj,anim,...)
-		end
-		-- full-table sweep: debounce to next resumption point
-		if not _pending then
-			_pending=true
-			task.defer(function()
-				_pending=false
-				_origUpdateTheme(self,nil,anim,...)
-			end)
-		end
-	end
-end
-
--- Skeleton loader: shows shimmer placeholders over the tab panel while the hub initialises
-local SkeletonLoader={}
-function SkeletonLoader.Show(parent,count)
-	count=count or 6
-	local RunService=(cloneref or clonereference or function(x)return x end)(game:GetService"RunService")
-	local TweenService=(cloneref or clonereference or function(x)return x end)(game:GetService"TweenService")
-
-	local holder=ao("Frame",{
-		Size=UDim2.new(1,0,1,0),
-		BackgroundTransparency=1,
-		ZIndex=9999,
-		Name="SkeletonHolder",
-		Parent=parent,
-	})
-
-	local rows={}
-	local widths={0.85,0.6,0.9,0.5,0.75,0.65,0.8,0.55}
-	local rightWidths={0.15,0.12,0.18,0.1}
-
-	ao("UIListLayout",{
-		FillDirection="Vertical",
-		Padding=UDim.new(0,10),
-		Parent=holder,
-	})
-	ao("UIPadding",{
-		PaddingTop=UDim.new(0,20),
-		PaddingLeft=UDim.new(0,20),
-		PaddingRight=UDim.new(0,20),
-		Parent=holder,
-	})
-
-	for i=1,count do
-		local w=widths[((i-1)%#widths)+1]
-		local rw=rightWidths[((i-1)%#rightWidths)+1]
-		local h=i==1 and 36 or (i%3==0 and 28 or 32)
-
-		local row=ao("Frame",{
-			Size=UDim2.new(1,0,0,h),
-			BackgroundTransparency=1,
-			Parent=holder,
-		})
-		ao("UIListLayout",{
-			FillDirection="Horizontal",
-			VerticalAlignment="Center",
-			HorizontalAlignment="Left",
-			Padding=UDim.new(0,10),
-			Parent=row,
-		})
-
-		local bar=ao("Frame",{
-			Size=UDim2.new(w,-math.floor(rw*200)-10,0,h),
-			BackgroundColor3=Color3.fromRGB(255,255,255),
-			BackgroundTransparency=0.93,
-			Parent=row,
-		})
-		ao("UICorner",{CornerRadius=UDim.new(0,8),Parent=bar})
-
-		local shimmer=ao("Frame",{
-			Size=UDim2.new(0.35,0,1,0),
-			BackgroundColor3=Color3.fromRGB(255,255,255),
-			BackgroundTransparency=0.88,
-			Position=UDim2.new(-0.35,0,0,0),
-			Parent=bar,
-		})
-		ao("UICorner",{CornerRadius=UDim.new(0,8),Parent=shimmer})
-		ao("UIGradient",{
-			Transparency=NumberSequence.new{
-				NumberSequenceKeypoint.new(0,1),
-				NumberSequenceKeypoint.new(0.3,0.7),
-				NumberSequenceKeypoint.new(0.5,0.5),
-				NumberSequenceKeypoint.new(0.7,0.7),
-				NumberSequenceKeypoint.new(1,1),
-			},
-			Rotation=0,
-			Parent=shimmer,
-		})
-
-		local rbar=ao("Frame",{
-			Size=UDim2.new(rw,0,0,h),
-			BackgroundColor3=Color3.fromRGB(255,255,255),
-			BackgroundTransparency=0.93,
-			LayoutOrder=2,
-			Parent=row,
-		})
-		ao("UICorner",{CornerRadius=UDim.new(0,8),Parent=rbar})
-
-		table.insert(rows,{bar=bar,shimmer=shimmer,rbar=rbar})
-	end
-
-	-- animate shimmer sweeping left→right on each bar
-	local conn
-	local startT=tick()
-	local speed=1.4 -- seconds per sweep cycle
-	conn=RunService.Heartbeat:Connect(function()
-		if not holder or not holder.Parent then
-			conn:Disconnect()
-			return
-		end
-		local t=((tick()-startT)%speed)/speed -- 0→1
-		for _,r in ipairs(rows) do
-			r.shimmer.Position=UDim2.new(-0.35+(t*1.35),0,0,0)
-		end
-	end)
-
-	function SkeletonLoader.Hide()
-		conn:Disconnect()
-		TweenService:Create(holder,TweenInfo.new(0.3,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{
-			BackgroundTransparency=1,
-		}):Play()
-		for _,r in ipairs(rows) do
-			TweenService:Create(r.bar,TweenInfo.new(0.25),{BackgroundTransparency=1}):Play()
-			TweenService:Create(r.shimmer,TweenInfo.new(0.2),{BackgroundTransparency=1}):Play()
-			TweenService:Create(r.rbar,TweenInfo.new(0.25),{BackgroundTransparency=1}):Play()
-		end
-		task.delay(0.35,function()
-			if holder and holder.Parent then
-				holder:Destroy()
-			end
-		end)
-	end
-
-	return SkeletonLoader
-end
-aa.SkeletonLoader=SkeletonLoader
-
 function aa.CreateWindow(au,av)
 local aw=a.ao()
 local ax=av.Folder or av.Title or"Temp"
@@ -16378,51 +16239,6 @@ local aA=gethwid or function()
 return af.LocalPlayer.UserId
 end
 local aB=aA()
--- show skeleton while key system / language system loads
-local _skelParent=aa.ScreenGui
-local _skelFrame=ao("Frame",{
-	Size=UDim2.new(0,580,0,460),
-	Position=UDim2.new(0.5,0,0.5,0),
-	AnchorPoint=Vector2.new(0.5,0.5),
-	BackgroundColor3=Color3.fromRGB(20,20,20),
-	BackgroundTransparency=0.05,
-	ZIndex=9998,
-	Name="SkeletonWindow",
-	Parent=_skelParent,
-})
-ao("UICorner",{CornerRadius=UDim.new(0,16),Parent=_skelFrame})
--- topbar placeholder
-local _skelTopbar=ao("Frame",{
-	Size=UDim2.new(1,0,0,52),
-	BackgroundColor3=Color3.fromRGB(255,255,255),
-	BackgroundTransparency=0.96,
-	Parent=_skelFrame,
-})
-ao("UICorner",{CornerRadius=UDim.new(0,16),Parent=_skelTopbar})
--- sidebar placeholder
-local _skelSide=ao("Frame",{
-	Size=UDim2.new(0,200,1,-52),
-	Position=UDim2.new(0,0,0,52),
-	BackgroundColor3=Color3.fromRGB(255,255,255),
-	BackgroundTransparency=0.97,
-	Parent=_skelFrame,
-})
--- content skeleton
-local _skelContent=ao("Frame",{
-	Size=UDim2.new(1,-200,1,-52),
-	Position=UDim2.new(0,200,0,52),
-	BackgroundTransparency=1,
-	Parent=_skelFrame,
-})
-SkeletonLoader.Show(_skelContent,7)
-local function _hideSkeleton()
-	SkeletonLoader.Hide()
-	local ts=(cloneref or clonereference or function(x)return x end)(game:GetService"TweenService")
-	ts:Create(_skelFrame,TweenInfo.new(0.3,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{BackgroundTransparency=1}):Play()
-	task.delay(0.35,function()
-		if _skelFrame and _skelFrame.Parent then _skelFrame:Destroy()end
-	end)
-end
 if av.LanguageSystem then
 local aLangFolder=av.Folder or"Temp"
 local aLangPath=aLangFolder.."/"..aB..".lang"
@@ -16517,11 +16333,6 @@ aa.Window=aC
 if av.Acrylic then
 ap.init()
 end
--- hide skeleton once window finishes opening
-task.spawn(function()
-	task.wait(0.1)
-	_hideSkeleton()
-end)
 return aC
 end
 return aa
