@@ -1,0 +1,614 @@
+{
+  "tabs": {
+    "Information": {
+      "title": "Información",
+      "desc": "Información sobre VexonHub"
+    },
+    "Main": {
+      "title": "Principal",
+      "desc": "Todas las funciones principales",
+      "sections": {
+        "Autos": {
+          "dropdowns": {
+            "Select Place": {
+              "title": "Elegir Lugar",
+              "desc": "¿A dónde quieres que se teletransporte automáticamente?",
+              "values": ["Mapa", "Pixel", "Vacío", "Oscuridad", "Montaña", "Mostrador", "Base Atómica", "Base Atómica Arriba", "Golpe Atómico", "Prisión"]
+            }
+          },
+          "toggles": {
+            "Auto Void/Place": {
+              "title": "Auto Vacío/Lugar",
+              "desc": "Te teletransporta automáticamente al lugar elegido."
+            },
+            "Tp Back Old Pos": {
+              "title": "TP Posición Anterior",
+              "desc": "Te teletransporta a tu posición anterior después del auto vacío."
+            }
+          }
+        },
+        "OP": {
+          "buttons": {
+            "VexonHub Mini": {
+              "title": "VexonHub Mini",
+              "desc": "Primera versión de VexonHub, pero muy útil."
+            }
+          },
+          "toggles": {
+            "Semi Godmode": {
+              "title": "Semi Godmode",
+              "desc": "Te pone un poco bajo tierra para que otros no puedan golpearte con movimientos pequeños como el M1."
+            },
+            "No Dash Cool Down": {
+              "title": "Sin Cooldown de Dash",
+              "desc": "Quita el tiempo de recarga de tu dash."
+            },
+            "Invisibility": {
+              "title": "Invisibilidad",
+              "desc": "Eleva un poco al personaje y evita que otros lo vean. Si quieres ser completamente invisible, es mejor usar la opción de abajo."
+            },
+            "Invisibility Character Hide": {
+              "title": "Esconder Personaje (Invisibilidad)",
+              "desc": "Esconde tu personaje bajo tierra poniéndolo al revés."
+            }
+          }
+        },
+        "Movement": {
+          "toggles": {
+            "Speed (Keybind On/Off)": {
+              "title": "Velocidad (Tecla On/Off)",
+              "desc": "Activa o desactiva el boost de velocidad con una tecla."
+            }
+          },
+          "sliders": {
+            "Speed Boost Value": {
+              "title": "Valor del Boost de Velocidad",
+              "desc": "Ajusta el valor del boost de velocidad."
+            }
+          },
+          "keybinds": {
+            "Speed Boost Keybind": {
+              "title": "Tecla de Boost de Velocidad",
+              "desc": "Presiona para establecer tu tecla de Boost de Velocidad."
+            }
+          }
+        },
+        "VFX": {
+          "colorpickers": {
+            "VFX Color": {
+              "title": "Color de VFX",
+              "desc": "Elige el color de tus VFX."
+            }
+          },
+          "toggles": {
+            "Change The Selected VFX Color": {
+              "title": "Cambiar el Color VFX Elegido",
+              "desc": "Activa el color de VFX que elegiste."
+            }
+          }
+        },
+        "Fly": {
+          "inputs": {
+            "Fly Speed": {
+              "title": "Velocidad de Vuelo",
+              "desc": "Ajusta el valor de la velocidad de vuelo."
+            }
+          },
+          "toggles": {
+            "Fly": {
+              "title": "Vuelo",
+              "desc": "Activa o desactiva el modo vuelo."
+            }
+          },
+          "keybinds": {
+            "Fly Keybind": {
+              "title": "Tecla de Vuelo",
+              "desc": "Tecla para activar/desactivar el vuelo."
+            }
+          }
+        },
+        "Teleports": {
+          "desc": "Arriba, Abajo, Izquierda, Derecha, Adelante, Atrás con Interfaz + Teclas",
+          "directions": {
+            "Down": {
+              "button": "Teletransporte Abajo",
+              "slider": "Distancia de Teletransporte Abajo",
+              "toggle": "Interfaz de Teletransporte",
+              "keybind": "Tecla de Teletransporte"
+            },
+            "Up": {
+              "button": "Teletransporte Arriba",
+              "slider": "Distancia de Teletransporte Arriba",
+              "toggle": "Interfaz de Teletransporte",
+              "keybind": "Tecla de Teletransporte"
+            },
+            "Forward": {
+              "button": "Teletransporte Adelante",
+              "slider": "Distancia de Teletransporte Adelante",
+              "toggle": "Interfaz de Teletransporte",
+              "keybind": "Tecla de Teletransporte"
+            },
+            "Back": {
+              "button": "Teletransporte Atrás",
+              "slider": "Distancia de Teletransporte Atrás",
+              "toggle": "Interfaz de Teletransporte",
+              "keybind": "Tecla de Teletransporte"
+            },
+            "Left": {
+              "button": "Teletransporte Izquierda",
+              "slider": "Distancia de Teletransporte Izquierda",
+              "toggle": "Interfaz de Teletransporte",
+              "keybind": "Tecla de Teletransporte"
+            },
+            "Right": {
+              "button": "Teletransporte Derecha",
+              "slider": "Distancia de Teletransporte Derecha",
+              "toggle": "Interfaz de Teletransporte",
+              "keybind": "Tecla de Teletransporte"
+            }
+          }
+        }
+      }
+    },
+    "Misc": {
+      "title": "Varios",
+      "desc": "Scripts para uso fácil",
+      "sections": {
+        "Universal Scripts": {
+          "buttons": {
+            "Inf Yield": { "title": "Inf Yield", "desc": "Carga los comandos de admin Infinite Yield." },
+            "Dex Explorer": { "title": "Dex Explorer", "desc": "Carga el Dex Explorer para inspeccionar el juego." },
+            "Remote Spy": { "title": "Remote Spy", "desc": "Carga Simple Spy para ver los remote events." },
+            "Keyboard": { "title": "Teclado", "desc": "Carga un teclado virtual en pantalla." },
+            "Anim Logger": { "title": "Anim Logger", "desc": "Registra los IDs de animación del juego." },
+            "f3x": { "title": "F3X", "desc": "Carga las herramientas de construcción F3X." },
+            "Fly V3": { "title": "Fly V3", "desc": "Carga otro script de vuelo (V3)." },
+            "VFX Logger": { "title": "VFX Logger", "desc": "Registra los VFX y partículas del juego." }
+          }
+        },
+        "Player": {
+          "buttons": {
+            "ServerHop": { "title": "Server Hop", "desc": "Únete a otro servidor." },
+            "Rejoin": { "title": "Reentrar", "desc": "Vuelve a entrar a la partida actual." },
+            "Reset": { "title": "Reiniciar", "desc": "Reinicia tu personaje." },
+            "Fixcam V1": { "title": "Fixcam V1", "desc": "Arregla la cámara (versión 1)." },
+            "Fixcam V2": { "title": "Fixcam V2", "desc": "Arregla la cámara (versión 2)." }
+          }
+        },
+        "Random": {
+          "buttons": {
+            "Buy limited Emotes": {
+              "title": "Comprar Emotes Limitados",
+              "desc": "Puedes comprar con Robux emotes limitados que fueron eliminados del juego (no estoy seguro si está parcheado)."
+            },
+            "Strange Character Mod": {
+              "title": "Mod Personaje Raro",
+              "desc": "WallCombo en todas partes + Ragdoll al recibir daño + Dash sin velocidad + Al revés."
+            },
+            "Strange Attacks": {
+              "title": "Ataques Raros",
+              "desc": "Todos los ataques caen de arriba."
+            },
+            "Baldy Dummy": { "title": "Maniquí Calvo", "desc": "Genera un maniquí calvo." },
+            "Crazy Spin": { "title": "Giro Loco", "desc": "Hace girar a tu personaje locamente." },
+            "Crazy Dance": { "title": "Baile Loco", "desc": "Hace que tu personaje baile locamente." }
+          }
+        }
+      }
+    },
+    "Bring": {
+      "title": "Traer",
+      "desc": "Por thatonedudetsts",
+      "sections": {
+        "Wall Combo": {
+          "toggles": {
+            "Wall Combo Everywhere": {
+              "title": "Wall Combo en Todas Partes",
+              "desc": "Te permite hacer Wall Combos desde cualquier lugar."
+            },
+            "Auto Wall Combo": {
+              "title": "Auto Wall Combo",
+              "desc": "Hace Wall Combos automáticamente cuando es posible."
+            },
+            "Bring Wall Combo": {
+              "title": "Traer Wall Combo",
+              "desc": "Teletransporta al objetivo al lugar elegido durante un Wall Combo."
+            },
+            "Tp Back Old Pos": {
+              "title": "TP Posición Anterior",
+              "desc": "Te teletransporta a tu posición anterior después del bring del Wall Combo."
+            }
+          },
+          "dropdowns": {
+            "Bring Place": {
+              "title": "Lugar de Bring",
+              "desc": "Elige el lugar donde traer al objetivo durante el Wall Combo."
+            }
+          }
+        },
+        "Bring Settings": {
+          "toggles": {
+            "Attach Teleport Mode": {
+              "title": "Modo Teletransporte por Adjunto",
+              "desc": "Teletransportación sin ping que adjunta tu personaje directamente al objetivo. Muy efectivo para traer si el objetivo se mueve — la tasa de éxito es casi 100%. Requiere un buen ejecutor como Delta. Xeno no es compatible."
+            },
+            "Return to Old Position": {
+              "title": "Volver a la Posición Anterior",
+              "desc": "Te teletransporta a tu posición anterior cuando el bring termina."
+            },
+            "Loop Bring Random Player": {
+              "title": "Traer en Bucle a un Jugador Aleatorio",
+              "desc": "Trae jugadores aleatorios al lugar elegido en bucle."
+            }
+          },
+          "dropdowns": {
+            "Pick a Target": {
+              "title": "Elegir un Objetivo",
+              "desc": "Elige el jugador objetivo a traer."
+            },
+            "Bring Spot": {
+              "title": "Lugar de Bring",
+              "desc": "Elige el lugar donde traer al objetivo."
+            }
+          },
+          "buttons": {
+            "Bring": { "title": "Traer", "desc": "Trae al objetivo elegido al lugar seleccionado." },
+            "Bring Random Player": { "title": "Traer Jugador Aleatorio", "desc": "Trae a un jugador aleatorio al lugar elegido." }
+          },
+          "sliders": {
+            "Prediction": {
+              "title": "Predicción",
+              "desc": "Ajusta el tiempo de predicción para traer objetivos en movimiento."
+            }
+          }
+        }
+      }
+    },
+    "Attach": {
+      "title": "Adjuntar",
+      "desc": "Por TheBiggestRteHater"
+    },
+    "Fighting": {
+      "title": "Combate",
+      "desc": "Muchas cosas para el combate y el farming",
+      "sections": {
+        "Reach": {
+          "inputs": {
+            "Detection Distance": {
+              "title": "Distancia de Detección",
+              "desc": "Distancia máxima para detectar enemigos cercanos."
+            },
+            "Teleport Distance": {
+              "title": "Distancia de Teletransporte",
+              "desc": "A qué distancia teletransportarse del objetivo al atacar."
+            }
+          },
+          "toggles": {
+            "M1 Click Reach": {
+              "title": "Alcance de Clic M1",
+              "desc": "Te teletransporta cerca del enemigo más cercano cuando haces clic en M1."
+            },
+            "Auto Hit": {
+              "title": "Auto Golpe",
+              "desc": "Hace clics M1 automáticamente a los jugadores cercanos."
+            },
+            "Auto Dodge M1/Moves": {
+              "title": "Auto Esquiva M1/Ataques",
+              "desc": "Esquiva automáticamente los ataques M1 y los golpes de los enemigos."
+            }
+          },
+          "buttons": {
+            "Easy Kill Player panel": {
+              "title": "Panel Easy Kill Jugador",
+              "desc": "No funciona — guardado solo para quien lo hizo. Hecho por uno de los primeros miembros de VexonHub."
+            }
+          }
+        }
+      }
+    },
+    "Farming": {
+      "title": "Farming",
+      "desc": "Auto farm, kill, etc."
+    },
+    "Lag-Ping": {
+      "title": "Lag-Ping",
+      "desc": "Úsalo para tener menos lag",
+      "sections": {
+        "Performance Optimizations": {
+          "buttons": {
+            "Optimize Game Performance": {
+              "title": "Optimizar Rendimiento del Juego",
+              "desc": "Baja las sombras, la niebla, la calidad, los efectos de agua y quita las partículas para mejorar los FPS."
+            }
+          },
+          "toggles": {
+            "Remove Debris & Thrown": {
+              "title": "Quitar Escombros y Proyectiles",
+              "desc": "Quita automáticamente los objetos lanzados y los escombros del juego para reducir el lag."
+            }
+          }
+        },
+        "Hide Parts": {
+          "toggles": {
+            "Trees": {
+              "title": "Árboles",
+              "desc": "Mostrar u ocultar los árboles del mapa."
+            },
+            "Walls": {
+              "title": "Muros",
+              "desc": "Mostrar u ocultar los muros del mapa."
+            },
+            "Grass": {
+              "title": "Hierba",
+              "desc": "Mostrar u ocultar la hierba del mapa."
+            },
+            "Benches": {
+              "title": "Bancos",
+              "desc": "Mostrar u ocultar los bancos del mapa."
+            }
+          }
+        }
+      }
+    },
+    "Teleport": {
+      "title": "Teletransporte",
+      "desc": "Teletransportarse a lugares",
+      "sections": {
+        "TP Stuff": {
+          "buttons": {
+            "Teleport Panel": { "title": "Panel de Teletransporte", "desc": "Abre el script del panel de teletransporte." },
+            "TP Frozen Lock": { "title": "TP Frozen Lock", "desc": "Carga el script de teletransporte Frozen Lock." },
+            "TP Dummy": { "title": "TP Maniquí", "desc": "Teletransporta hacia un maniquí." }
+          }
+        },
+        "Teleport Places": {
+          "desc": "Botones para teletransportarse a lugares específicos del mapa.",
+          "locations": [
+            "Medio del Mapa", "Prisión", "Montaña", "Puerta 1", "Puerta 2",
+            "Esquina 1", "Esquina 2", "Esquina 3", "Esquina 4",
+            "Mostrador", "Mostrador Arriba"
+          ]
+        }
+      }
+    },
+    "ESP": {
+      "title": "ESP",
+      "desc": "Ver a los jugadores con ESP"
+    },
+    "Fling": {
+      "title": "Fling",
+      "desc": "Hacer Fling a los jugadores. Bugeado",
+      "sections": {
+        "Player Selector": {
+          "dropdowns": {
+            "Select Player": {
+              "title": "Elegir Jugador",
+              "desc": "Elige un jugador para usar las opciones de Fling."
+            }
+          },
+          "toggles": {
+            "Attach Teleport": {
+              "title": "Teletransporte por Adjunto",
+              "desc": "Usa el modo adjunto cuando haces Fling."
+            },
+            "Notify on Death": {
+              "title": "Aviso al Morir",
+              "desc": "Recibe un aviso cuando el jugador elegido muere."
+            },
+            "Loop Teleport": {
+              "title": "Teletransporte en Bucle",
+              "desc": "Se teletransporta en bucle hacia el jugador elegido."
+            },
+            "Loop View": {
+              "title": "Vista en Bucle",
+              "desc": "Mira en bucle al jugador elegido."
+            },
+            "Aim Lock Camera": {
+              "title": "Bloqueo de Cámara",
+              "desc": "Bloquea tu cámara para apuntar al jugador elegido."
+            },
+            "Aim Lock Character": {
+              "title": "Bloqueo de Personaje",
+              "desc": "Bloquea tu personaje para mirar al jugador elegido."
+            },
+            "Orbit Player": {
+              "title": "Orbitar Jugador",
+              "desc": "Orbita alrededor del jugador elegido."
+            },
+            "Loop Fling": {
+              "title": "Fling en Bucle",
+              "desc": "Hace Fling al jugador elegido en bucle."
+            },
+            "Bang Bang": {
+              "title": "Bang Bang",
+              "desc": "Hace ida y vuelta detrás del jugador elegido."
+            },
+            "Face Bang Bang": {
+              "title": "Face Bang Bang",
+              "desc": "Hace ida y vuelta delante de la cara del jugador elegido."
+            },
+            "Walk To Player": {
+              "title": "Caminar al Jugador",
+              "desc": "Busca el camino y camina hacia el jugador elegido."
+            },
+            "Tween Player": {
+              "title": "Tween al Jugador",
+              "desc": "Se mueve suavemente (tween) hacia el jugador elegido."
+            },
+            "Head Sit": {
+              "title": "Sentarse en la Cabeza",
+              "desc": "Se sienta encima de la cabeza del jugador elegido."
+            },
+            "Backpack": {
+              "title": "Mochila",
+              "desc": "Se adjunta a la espalda del jugador elegido."
+            },
+            "Carpet": {
+              "title": "Alfombra",
+              "desc": "Se acuesta plano bajo los pies del jugador elegido."
+            },
+            "ESP": {
+              "title": "ESP",
+              "desc": "Muestra un indicador ESP sobre el jugador elegido."
+            },
+            "Tool Selector": {
+              "title": "Selector de Herramienta",
+              "desc": "Activa la herramienta para elegir a un jugador haciendo clic."
+            }
+          }
+        },
+        "Fling": {
+          "toggles": {
+            "Fling Aura": {
+              "title": "Aura de Fling",
+              "desc": "Hace Fling automáticamente a los jugadores que se acercan a ti."
+            },
+            "Click Fling": {
+              "title": "Fling con Clic",
+              "desc": "Haz clic en un jugador para hacerle Fling."
+            },
+            "Fling All (Buggy?)": {
+              "title": "Fling a Todos (¿Bugeado?)",
+              "desc": "Intenta hacer Fling a todos los jugadores del servidor. Puede estar bugeado."
+            },
+            "Touch Fling": {
+              "title": "Fling por Contacto",
+              "desc": "Hace Fling a cualquiera que te toque."
+            },
+            "Custom Touch Fling Power": {
+              "title": "Power de Touch Fling Personalizado",
+              "desc": "Usa un valor de potencia personalizado para el touch fling."
+            },
+            "Anti Fling": {
+              "title": "Anti Fling",
+              "desc": "Evita que otros te hagan Fling desactivando sus colisiones."
+            }
+          },
+          "inputs": {
+            "Fling Power Value": {
+              "title": "Valor de Potencia de Fling",
+              "desc": "Ingresa el valor de potencia para el touch fling personalizado."
+            }
+          }
+        }
+      }
+    },
+    "Defence": {
+      "title": "Defensa",
+      "desc": "Hecho por Abdul"
+    },
+    "Premium": {
+      "title": "Premium",
+      "desc": "Información sobre Premium",
+      "sections": {
+        "Premium Commands": {
+          "toggles": {
+            "ESP VH Users": {
+              "title": "ESP Usuarios VH",
+              "desc": "Muestra el nombre, los HP y la distancia de los jugadores gratuitos en VexonHub."
+            }
+          },
+          "buttons": {
+            "Kick": { "title": "Kickear", "desc": "Expulsa al objetivo." },
+            "Kill": { "title": "Matar", "desc": "Mata al objetivo." },
+            "Bring": { "title": "Traer", "desc": "Trae al objetivo hacia ti." },
+            "Black Screen": { "title": "Pantalla Negra", "desc": "Pantalla negra durante 10 segundos." },
+            "Unblack": { "title": "Quitar Pantalla Negra", "desc": "Quita la pantalla negra." },
+            "Freeze": { "title": "Congelar", "desc": "Congela al objetivo durante 10 segundos." },
+            "Jumpscare": { "title": "Jumpscare", "desc": "Hace un Jumpscare al objetivo." },
+            "Sound Spam": { "title": "Spam de Sonido", "desc": "Ruido ensordecedor durante 10 segundos." },
+            "Launch": { "title": "Lanzar", "desc": "Hace Fling al objetivo hacia el cielo." },
+            "Spin": { "title": "Girar", "desc": "Hace girar la cámara del objetivo durante 10 segundos." },
+            "Flip": { "title": "Voltear", "desc": "Pone al personaje al revés durante 10 segundos." },
+            "Slow Mo": { "title": "Cámara Lenta", "desc": "Pone la velocidad de caminar a 2 durante 10 segundos." },
+            "Ragdoll": { "title": "Ragdoll", "desc": "Fuerza el Ragdoll durante 5 segundos." },
+            "No Jump": { "title": "Sin Saltar", "desc": "Desactiva el salto durante 10 segundos." },
+            "Disco": { "title": "Disco", "desc": "Hace parpadear colores aleatorios durante 10 segundos." },
+            "Giant": { "title": "Gigante", "desc": "Hace al personaje gigante durante 10 segundos." },
+            "Tiny": { "title": "Diminuto", "desc": "Hace al personaje diminuto durante 10 segundos." },
+            "Invert Screen": { "title": "Invertir Pantalla", "desc": "Invierte los colores de la pantalla durante 10 segundos." },
+            "Zoom In": { "title": "Acercar Zoom", "desc": "Bloquea la cámara con zoom durante 10 segundos." }
+          }
+        }
+      }
+    },
+    "Config": {
+      "title": "Config",
+      "desc": "Guarda tu config y reutilízala más tarde",
+      "sections": {
+        "Config": {
+          "inputs": {
+            "Config Name": {
+              "title": "Nombre de la Config",
+              "placeholder": "Ingresa el nombre...",
+              "desc": "Ingresa un nombre para tu config."
+            }
+          },
+          "buttons": {
+            "Create": { "title": "Crear", "desc": "Crea una nueva config con el nombre elegido." },
+            "Refresh Config List": { "title": "Refrescar Lista", "desc": "Recarga la lista de configs guardadas." },
+            "Load": { "title": "Cargar", "desc": "Carga la config elegida." },
+            "Save": { "title": "Guardar", "desc": "Guarda los ajustes actuales en la config elegida." },
+            "Delete": { "title": "Eliminar", "desc": "Elimina la config elegida." }
+          },
+          "dropdowns": {
+            "Config List": {
+              "title": "Lista de Configs",
+              "desc": "Elige una config guardada para cargarla, guardarla o eliminarla."
+            }
+          }
+        }
+      }
+    },
+    "VH Lite": {
+      "title": "VH Lite",
+      "desc": "Versión ligera de VexonHub",
+      "sections": {
+        "buttons": {
+          "Use VH Lite": {
+            "title": "Usar VH Lite",
+            "desc": "Cambia a la versión VH Lite."
+          }
+        },
+        "paragraphs": {
+          "What is VH Lite?": {
+            "title": "¿Qué es VH Lite?",
+            "desc": "VH Lite es una versión ligera y optimizada de VexonHub, hecha para los jugadores que quieren la misma experiencia sin bajar el rendimiento. Tiene las mismas funciones básicas que te gustan, pero funciona de manera mucho más ligera en tu dispositivo, lo que significa menos lag, un juego más fluido y una sesión más estable. Es lo mismo que VexonHub, solo que ajustado para mantener buenos FPS y una experiencia limpia."
+          },
+          "Features": {
+            "title": "Funciones",
+            "desc": "VH Lite incluye las herramientas esenciales del hub principal como las funciones de combate, el ESP básico, las opciones de movimiento y mejoras de calidad de vida, todo reconstruido y optimizado para funcionar bien. La interfaz es la misma de siempre, y la diferencia de rendimiento se nota desde que se carga. Está hecho para darte una buena sesión incluso en ejecutores o dispositivos más débiles."
+          },
+          "Please Note": {
+            "title": "Por Favor Ten en Cuenta",
+            "desc": "Como VH Lite es una versión más ligera, no se actualiza tan a menudo como la versión principal. Algunas funciones pueden comportarse de manera diferente o a veces no funcionar bien. No está tan pulida como la versión completa y puede tener algunos pequeños bugs. Te recomendamos usarla si tienes lag con la versión normal, en lugar de usarla como reemplazo permanente."
+          }
+        }
+      }
+    }
+  },
+  "notifications": {
+    "loading": "Espera unos 10 segundos para que el script se cargue por completo.",
+    "premium_verified_title": "Premium Verificado",
+    "premium_verified_text": "¡Bienvenido! Todas las funciones están desbloqueadas.",
+    "normal_user_title": "Usuario Normal",
+    "normal_user_text": "Las funciones Premium están bloqueadas. Pasa a Premium para desbloquear todo.",
+    "theme_changed_title": "Tema Cambiado",
+    "theme_changed_text": "¡Cambiado al tema {theme}!",
+    "transparency_disabled": "Transparencia desactivada",
+    "transparency_enabled": "Transparencia activada",
+    "all_tabs_loaded": "¡Todas las pestañas están cargadas! Diviértete.",
+    "esp_enabled": "ESP activado en usuarios gratuitos",
+    "esp_disabled": "ESP desactivado"
+  },
+  "topbar": {
+    "transparency_toggle": {
+      "title": "Activar Transparencia",
+      "desc": "Activa o desactiva la transparencia de la ventana."
+    }
+  },
+  "window": {
+    "toggle_key": "R",
+    "open_button_title": "VexonHub"
+  }
+}
