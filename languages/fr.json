@@ -13,17 +13,17 @@
             "Select Place": {
               "title": "Choisir le lieu",
               "desc": "Où veux-tu que ça téléporte automatiquement ?",
-              "values": ["Carte", "Pixel", "Néant", "Obscurité", "Montagne", "Comptoir", "Base Atomique", "Base Atomique en Haut", "Frappe Atomique", "Prison"]
+              "values": ["Carte", "Pixel", "Void", "Obscurité", "Montagne", "Comptoir", "Base Atomique", "Base Atomique en Haut", "Frappe Atomique", "Prison"]
             }
           },
           "toggles": {
             "Auto Void/Place": {
-              "title": "Auto Néant/Lieu",
+              "title": "Auto Void/Lieu",
               "desc": "Te téléporte automatiquement vers le lieu choisi."
             },
             "Tp Back Old Pos": {
               "title": "TP Ancienne Position",
-              "desc": "Te téléporte à ton ancienne position après l'auto néant."
+              "desc": "Te téléporte à ton ancienne position après l'auto Void."
             }
           }
         },
@@ -36,7 +36,7 @@
           },
           "toggles": {
             "Semi Godmode": {
-              "title": "Demi Godmode",
+              "title": "Semi Godmode",
               "desc": "Te met légèrement sous terre pour que les autres ne puissent pas te toucher avec des petits coups comme le M1."
             },
             "No Dash Cool Down": {
@@ -179,7 +179,7 @@
           "buttons": {
             "Buy limited Emotes": {
               "title": "Acheter des Emotes Limitées",
-              "desc": "Tu peux acheter avec des Robux des emotes limitées qui ont été retirées du jeu (pas sûr si c'est patch)."
+              "desc": "Tu peux acheter avec des Robux des emotes limitées qui ont été retirées du jeu (pas sûr si c'est patché)."
             },
             "Strange Character Mod": {
               "title": "Mod Personnage Étrange",
@@ -197,7 +197,7 @@
       }
     },
     "Bring": {
-      "title": "Amener",
+      "title": "Bring",
       "desc": "Par thatonedudetsts",
       "sections": {
         "Wall Combo": {
@@ -211,7 +211,7 @@
               "desc": "Fait automatiquement des Wall Combos quand c'est possible."
             },
             "Bring Wall Combo": {
-              "title": "Amener Wall Combo",
+              "title": "Bring Wall Combo",
               "desc": "Téléporte la cible au lieu choisi pendant un Wall Combo."
             },
             "Tp Back Old Pos": {
@@ -221,7 +221,7 @@
           },
           "dropdowns": {
             "Bring Place": {
-              "title": "Lieu d'Amener",
+              "title": "Lieu de Bring",
               "desc": "Choisis le lieu où amener la cible pendant le Wall Combo."
             }
           }
@@ -237,7 +237,7 @@
               "desc": "Te téléporte à ton ancienne position une fois le bring terminé."
             },
             "Loop Bring Random Player": {
-              "title": "Amener en Boucle un Joueur Aléatoire",
+              "title": "Loop Bring Joueur Aléatoire",
               "desc": "Amène des joueurs aléatoires au lieu choisi en boucle."
             }
           },
@@ -247,13 +247,13 @@
               "desc": "Choisis le joueur cible à amener."
             },
             "Bring Spot": {
-              "title": "Lieu d'Amener",
+              "title": "Lieu de Bring",
               "desc": "Choisis le lieu où amener la cible."
             }
           },
           "buttons": {
-            "Bring": { "title": "Amener", "desc": "Amène la cible choisie au lieu choisi." },
-            "Bring Random Player": { "title": "Amener un Joueur Aléatoire", "desc": "Amène un joueur aléatoire au lieu choisi." }
+            "Bring": { "title": "Bring", "desc": "Amène la cible choisie au lieu choisi." },
+            "Bring Random Player": { "title": "Bring Joueur Aléatoire", "desc": "Amène un joueur aléatoire au lieu choisi." }
           },
           "sliders": {
             "Prediction": {
@@ -377,7 +377,7 @@
     },
     "Fling": {
       "title": "Fling",
-      "desc": "Flinguer les joueurs. Bugué",
+      "desc": "Fling les joueurs. Buggé",
       "sections": {
         "Player Selector": {
           "dropdowns": {
@@ -468,12 +468,12 @@
               "desc": "Clique sur un joueur pour le fling."
             },
             "Fling All (Buggy?)": {
-              "title": "Fling Tout (Bugué ?)",
+              "title": "Fling Tout (Buggé ?)",
               "desc": "Essaie de fling tous les joueurs du serveur. Peut être buggé."
             },
             "Touch Fling": {
               "title": "Fling au Contact",
-              "desc": "Fling n'importe qui te touche."
+              "desc": "Fling tous ceux qui te touchent."
             },
             "Custom Touch Fling Power": {
               "title": "Puissance Fling au Contact Perso",
@@ -511,7 +511,7 @@
           "buttons": {
             "Kick": { "title": "Expulser", "desc": "Expulse la cible." },
             "Kill": { "title": "Tuer", "desc": "Tue la cible." },
-            "Bring": { "title": "Amener", "desc": "Amène la cible vers toi." },
+            "Bring": { "title": "Bring", "desc": "Amène la cible vers toi." },
             "Black Screen": { "title": "Écran Noir", "desc": "Écran noir pendant 10 secondes." },
             "Unblack": { "title": "Retirer l'Écran Noir", "desc": "Enlève l'écran noir." },
             "Freeze": { "title": "Geler", "desc": "Gèle la cible pendant 10 secondes." },
@@ -573,7 +573,7 @@
         "paragraphs": {
           "What is VH Lite?": {
             "title": "Qu'est-ce que VH Lite ?",
-            "desc": "VH Lite est une version allégée et optimisée de VexonHub, faite pour les joueurs qui veulent la même expérience sans faire baisser les performances. Elle a les mêmes fonctionnalités de base que tu aimes, mais tourne beaucoup plus légèrement sur ton appareil, ce qui veut dire moins de lag, un jeu plus fluide et une session plus stable. C'est la même chose que VexonHub, juste ajusté pour garder de bons FPS et une expérience propre."
+            "desc": "VH Lite est une version allégée et optimisée de VexonHub, faite pour les joueurs qui veulent la même expérience sans faire baisser les performances. Elle a les mêmes fonctionnalités de base que tu aimes, mais tourne beaucoup plus légèrement sur ton appareil, ce qui veut dire moins de lag, un jeu plus fluide et une session plus stable. C'est la même chose que VexonHub, juste ajusté pour garder de bons FPS et une expérience fluide."
           },
           "Features": {
             "title": "Fonctionnalités",
