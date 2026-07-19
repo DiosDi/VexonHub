@@ -16517,7 +16517,7 @@ aa.Window=aC
 if av.Acrylic then
 ap.init()
 end
-
+-- hide skeleton once window finishes opening
 task.spawn(function()
 	task.wait(0.1)
 	_hideSkeleton()
