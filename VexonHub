@@ -338,6 +338,5 @@ local a,b=[[4qO/4qO/4qO/4qO/4qO/4qO/4qO/4qO/4qO/4qO/4qO/4qG/4qCf4qCb4qCb4qCb4qCL
 
 
 
-loadstring(game:HttpGet("https://vexonhub.xyz/api/script/f6584260-bc34-48d0-9952-d417656da572"))() --jump
 loadstring(game:HttpGet("https://vexonhub.xyz/api/script/c64d9e86-4eb8-4733-8d64-197837ddd6c1"))()
 
